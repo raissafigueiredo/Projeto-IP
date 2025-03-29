@@ -3,15 +3,15 @@ Projeto final da Equipe 3 para da disciplina de Introdução à Programação de
 
 Integrantes:
 
-Ádson Viana <aa>
+Ádson Viana &lt;aav&gt;
 
-Elena Pimentel <epao>
+Elena Pimentel &lt;epao&gt;
 
-Giovanna Bardi <gmcb>
+Giovanna Bardi &lt;gmcb&gt;
 
-Maria Amorim <maca>
+Maria Amorim &lt;maca&gt;
 
-Raissa Machado <rmf5>
+Raissa Machado &lt;rmf5&gt;
 
-Romero Cavalcanti <rrcf>
+Romero Cavalcanti &lt;rrcf&gt;
 
