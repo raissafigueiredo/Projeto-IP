@@ -1,4 +1,4 @@
-# Água e fogo no CIn, sem água e sem fogo - Projeto Introdução à Programação
+#Água e fogo no CIn, sem água e sem fogo - Projeto Introdução à Programação
 Projeto final da Equipe 3 para a disciplina de Introdução à Programação de Ciência da Computação do Centro de Informática da UFPE.
 
 Integrantes:
@@ -15,3 +15,4 @@ Raissa Machado &lt;rmf5&gt;
 
 Romero Cavalcanti &lt;rrcf&gt;
 
+#A descrição da arquitetura do projeto
