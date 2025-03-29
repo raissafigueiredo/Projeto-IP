@@ -4,7 +4,6 @@ Projeto final da Equipe 3 para da disciplina de Introdução à Programação de
 Integrantes:
 
 Ádson Viana &lt;aav&gt;
-
 Elena Pimentel &lt;epao&gt;
 
 Giovanna Bardi &lt;gmcb&gt;
