@@ -38,7 +38,9 @@ Romero Cavalcanti &lt;rrcf&gt;
 
 # Desafios, erros e aprendizados
   Qual foi o maior erro cometido durante o projeto? Como vocês lidaram com ele?
+  
   Qual foi o maior desafio enfrentado durante o projeto? Como vocês lidaram com ele?
+  
   Quais as lições aprendidas durante o projeto?
 
 # Links
