@@ -55,15 +55,24 @@ class Player():
                      pass
                     else:
                         self.dx += 5
-                            
+                         
                 self.vel_y += 1
                 
                 if self.vel_y > 10:
                     self.vel_y = 10
-                self.dy += self.vel_y
+
+                
+                if colisao_livro_um == "à cima do obstaculo":
+                    pass
+                else:
+                    self.dy += self.vel_y
 
                 self.rect.x += self.dx
-                self.rect.y += self.dy
+
+                if colisao_livro_um == "à cima do obstaculo":
+                    pass
+                else:
+                    self.rect.y += self.dy
             
                 for plataforma_ in plataformas:
                     if plataforma_[1].colliderect(self.rect.x + self.dx, self.rect.y, self.width, self.height):
