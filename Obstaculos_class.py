@@ -35,18 +35,18 @@ class Obstaculos:
     colisao = None
 
     if self.obstaculo.colliderect(player.rect):
-      
+
+      if self.obstaculo.top < player.rect.bottom and player.rect.bottom < 385:
+        print("cima")
+        colisao = "à cima do obstaculo"
+
       if self.obstaculo.left < player.rect.right and self.obstaculo.right > player.rect.right:
-        print ("esquerda")
         colisao = "à esquerda do obstaculo"
 
       elif self.obstaculo.right > player.rect.left:
-        print("direita")
         colisao = "à direita do obstaculo"
 
-      elif self.obstaculo.top > player.rect.bottom:
-        print("cima")
-        colisao = "à cima do obstaculo"
+
     return colisao
 
 
