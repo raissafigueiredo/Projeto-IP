@@ -36,15 +36,36 @@ class Obstaculos:
 
     if self.obstaculo.colliderect(player.rect):
 
-      if self.obstaculo.top < player.rect.bottom and player.rect.bottom < 385:
-        print("cima")
-        colisao = "à cima do obstaculo"
 
+      # Colisão lateral esquerda do obstáculo
       if self.obstaculo.left < player.rect.right and self.obstaculo.right > player.rect.right:
+        print("esquerda")
         colisao = "à esquerda do obstaculo"
 
+      # Colisão lateral direita do obstáculo
       elif self.obstaculo.right > player.rect.left:
+        print("direita")
         colisao = "à direita do obstaculo"
+
+      # Colisão superior ao obstáculo
+      if self.obstaculo.top < player.rect.bottom  and self.obstaculo.top > player.rect.top:
+        
+        #Para os dois primeiros obstáculos, que estão no mesmo nível
+        if (self == livros_um or self == placa_um) and player.rect.bottom < 390:
+          print("cima")
+          colisao = "à cima do obstaculo"
+
+        #Para o obstáculo que está no nível do meio
+        elif self == livros_dois and player.rect.bottom < 238:
+          print("cima")
+          colisao = "à cima do obstaculo"
+        
+        #Para o obstáculo mais à cima
+        elif self == placa_dois and player.rect.bottom < 87:
+          print("cima")
+          colisao = "à cima do obstaculo"
+
+
 
 
     return colisao
@@ -52,7 +73,7 @@ class Obstaculos:
 
 
 livros_um = Obstaculos((360, 385), (40, 40), livro_path)
-placa_um = Obstaculos((540, 385), (40, 40,), placa_path)
+placa_um = Obstaculos((540, 385), (40, 40), placa_path)
 livros_dois = Obstaculos((450, 250), (40, 40), livro_path)
 placa_dois = Obstaculos((420, 180), (40, 40), placa_path)
 
@@ -69,7 +90,7 @@ while run:
   
   livros_um.__init__((360, 385), (40, 40), livro_path)
   placa_um.__init__((540, 385), (40, 40), placa_path)
-  livros_dois.__init__((450, 234), (40, 40), livro_path)
+  livros_dois.__init__((415, 234), (40, 40), livro_path)
   placa_dois.__init__((410, 83), (40, 40), placa_path)
 
   colisao_livro_um = livros_um.colisao()
