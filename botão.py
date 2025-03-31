@@ -5,7 +5,7 @@ pygame.init()
 
 tela = pygame.display.set_mode((700,450))
 pygame.display.set_caption("botao!")
-fonte_principal= pygame.font.SysFont("cambria", 50)
+fonte_principal= pygame.font.SysFont("comic sans", 50)
 
 class Botao():
     def __init__(self, imagem, x_pos, y_pos, texto_input):
