@@ -3,7 +3,12 @@ from pygame.locals import *
 from mundo import Mundo
 from coletaveis import *
 from player import Player
+from obstaculos import Obstaculos
 pygame.init()
+
+livro_path = "Sources/livros.png"
+placa_path = "Sources/fonte.png"
+
 
 # Configura a janela
 icone_path = 'Sources/player.png'
@@ -12,7 +17,7 @@ pygame.display.set_icon(icone)
 pygame.display.set_caption('Água e fogo no CIn, sem água e sem fogo')
 
 tela = pygame.display.set_mode((700, 450))
-jogador = Player(100, 100)
+jogador = Player(50, 383)
 mundo = Mundo()
 
 relogio = pygame.time.Clock()
@@ -26,14 +31,34 @@ cafe = mundo.cafes
 cafe_coletado = False
 cracha_coletado = False
 
+
+livros_um = Obstaculos((360, 385), (40, 40), livro_path)
+placa_um = Obstaculos((540, 385), (40, 40), placa_path)
+livros_dois = Obstaculos((415, 234), (40, 40), livro_path)
+placa_dois = Obstaculos((410, 83), (40, 40), placa_path)
+
+
+
+
 while running:
 
     relogio.tick(40)
     mundo.draw()
-    jogador.update()
     grupo_moedas.draw(tela)
     cracha.draw(tela)
     cafe.draw(tela)
+
+    livros_um.__init__((360, 385), (40, 40), livro_path)
+    placa_um.__init__((540, 385), (40, 40), placa_path)
+    livros_dois.__init__((415, 234), (40, 40), livro_path)
+    placa_dois.__init__((410, 83), (40, 40), placa_path)
+
+    colisao_livro_um = livros_um.colisao()
+    colisao_placa_um = placa_um.colisao()
+    colisao_livro_dois = livros_dois.colisao()
+    colisao_placa_dois = placa_dois.colisao()
+    jogador.update(0,0, colisao_livro_um, colisao_placa_um, colisao_livro_dois, colisao_placa_dois)
+
 
     # checa se alguma moeda foi coletada
     if pygame.sprite.spritecollide(jogador, grupo_moedas, True):
