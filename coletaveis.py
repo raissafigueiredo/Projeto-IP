@@ -2,7 +2,7 @@ import pygame
 from screen import Screen
 
 moeda_path = 'Sources/moedas.png'
-cafe_path = 'Sources/coffee_espresso.png'
+cafe_path = 'Sources/cafe.png'
 cracha_path = 'Sources/cracha.png'
 tela = Screen()
 
