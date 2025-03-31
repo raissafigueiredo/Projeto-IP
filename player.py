@@ -62,7 +62,7 @@ class Player():
                     self.vel_y = 10
 
                 
-                if colisao_livro_um == "à cima do obstaculo":
+                if colisao_livro_um == "à cima do obstaculo" or colisao_placa_um == "à cima do obstaculo" or colisao_livro_dois == "à cima do obstaculo" or colisao_placa_dois == "à cima do obstaculo":
                     pass
                 else:
                     self.dy += self.vel_y
