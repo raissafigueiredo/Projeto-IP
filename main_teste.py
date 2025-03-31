@@ -33,11 +33,11 @@ cafe = mundo.cafes
 cafe_coletado = False
 cracha_coletado = False
 
-
 while running:
 
     relogio.tick(42)
     mundo.draw()
+    tela.fill((250, 250, 250))
     grupo_moedas.draw(tela)
     cracha.draw(tela)
     cafe.draw(tela)
@@ -46,6 +46,7 @@ while running:
     placa_um = Obstaculos((540, 385), (40, 40), placa_path)
     livros_dois = Obstaculos((415, 234), (40, 40), livro_path)
     placa_dois = Obstaculos((410, 83), (40, 40), placa_path)
+
 
     #Testando a colisão com cada obstáculo
     colisao_livro_um = livros_um.colisao(livros_um, placa_um, livros_dois, placa_dois)

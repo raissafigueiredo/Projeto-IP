@@ -1,13 +1,10 @@
 import pygame
-from mundo import Mundo
-
-tela = pygame.display.set_mode((700, 450))
-player_path = 'Sources/player.png'
+from mundo import *
 
 class Player():
-    def __init__(self, x,y):
-                img = pygame.image.load(player_path)
-                self.image = pygame.transform.scale(img, (60,60))
+    def __init__(self, x, y):
+                img = player_img
+                self.image = pygame.transform.scale(img, (36 ,60))
                 self.rect = self.image.get_rect()
                 self.rect.x = x
                 self.rect.y = y
@@ -18,8 +15,8 @@ class Player():
                 self.height = self.image.get_height()
                 self.direction = 0
 
-    def update(self, dx, dy, colisao_livro_um, colisao_placa_um, colisao_livro_dois, colisao_placa_dois):
-                plataformas = Mundo().plataformas
+    def update(self, dx, dy, colisao_livro_um, colisao_placa_um, colisao_livro_dois, colisao_placa_dois, mundo, tela):
+                plataformas = mundo.plataformas
                 self.dx = dx
                 self.dy = dy
                 self.colisao_livro_um = colisao_livro_um

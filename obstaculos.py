@@ -1,11 +1,9 @@
 import pygame
 from player import Player
+from mundo import *
 jogador = Player(50, 385)
 
-
-tela = pygame.display.set_mode((700, 450))
-
-
+tela = pygame.display.set_mode((1000, 700))
 
 class Obstaculos:
 
