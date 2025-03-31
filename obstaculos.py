@@ -1,11 +1,9 @@
 import pygame
 from pygame.locals import *
-from screen import Screen
-from mundo import Mundo
 from player import Player
 
-jogador = Player(50, 383)
-tela = Screen()
+jogador = Player(50, 385)
+tela = pygame.display.set_mode((700, 450))
 
 
 
@@ -14,20 +12,21 @@ class Obstaculos:
   def __init__(self, posicao, tamanho, img_path):
     self.posicao = posicao
     self.tamanho = tamanho
-    self.obstaculo = pygame.draw.rect(tela.tela, (178, 19, 18), (self.posicao, self.tamanho))
+    self.obstaculo = pygame.draw.rect(tela, (178, 19, 18), (self.posicao, self.tamanho))
 
 
     self.img_path = img_path
     self.img_arq = pygame.image.load(self.img_path)
     self.img_arq_final = pygame.transform.scale(self.img_arq, (40,40))
     self.obstaculo = self.img_arq_final.get_rect(topleft = (self.posicao))
-    tela.tela.blit(self.img_arq_final, self.obstaculo)
+    tela.blit(self.img_arq_final, self.obstaculo)
 
   
   def colisao(self):
     colisao = None
 
     if self.obstaculo.colliderect(jogador.rect):
+      print("colisao")
 
 
       # Colisão lateral esquerda do obstáculo
@@ -57,8 +56,5 @@ class Obstaculos:
         elif self == "placa_dois" and jogador.rect.bottom < 90:
           print("cima")
           colisao = "à cima do obstaculo"
-
-
-
 
     return colisao

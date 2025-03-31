@@ -1,9 +1,9 @@
 import pygame
-from screen import Screen
 from coletaveis import *
+
 pygame.init()
 
-tela = Screen()
+tela = pygame.display.set_mode((700, 450))
 
 cenario_path = 'Sources/Cenário.jpeg'
 escada_path = 'Sources/Escada.jpeg'
@@ -71,8 +71,8 @@ class Mundo():
 
     def draw(self):
 
-        tela.tela.blit(self.bg_img, (0,0))
-        tela.tela.blit(self.escada, self.escada_rect)
-        tela.tela.blit(self.plataforma, self.plataforma_rect)
-        tela.tela.blit(self.plataforma1, self.plataforma1_rect)
-        tela.tela.blit(self.chao, self.chao_rect)
+        tela.blit(self.bg_img, (0,0))
+        tela.blit(self.escada, self.escada_rect)
+        tela.blit(self.plataforma, self.plataforma_rect)
+        tela.blit(self.plataforma1, self.plataforma1_rect)
+        tela.blit(self.chao, self.chao_rect)

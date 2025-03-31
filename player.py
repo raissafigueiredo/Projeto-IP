@@ -1,8 +1,7 @@
 import pygame
 from mundo import Mundo
-from screen import Screen 
 
-tela = Screen()
+tela = pygame.display.set_mode((700, 450))
 player_path = 'Sources/player.png'
 
 class Player():
@@ -91,9 +90,9 @@ class Player():
                 self.rect.x += self.dx
                 self.rect.y += self.dy
 
-                if self.rect.bottom > tela.altura_tela:
-                        self.rect.bottom = tela.altura_tela
+                if self.rect.bottom > 700: #largura da tela
+                        self.rect.bottom = 450 #altura da tela
                         self.dy = 0
 
                                        
-                tela.tela.blit(self.image, self.rect)
+                tela.blit(self.image, self.rect)
