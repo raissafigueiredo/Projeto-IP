@@ -1,9 +1,13 @@
 import pygame
+from screen import Screen
 
-moeda_path = 'Sources/coin_spin.gif'
+moeda_path = 'Sources/moedas.png'
+cafe_path = 'Sources/coffee_espresso.png'
+cracha_path = 'Sources/cracha.png'
+tela = Screen()
+
 
 class Moeda(pygame.sprite.Sprite):
-    moedas = pygame.sprite.Group()
 
     def __init__(self, x, y):
         pygame.sprite.Sprite.__init__(self)
@@ -11,10 +15,27 @@ class Moeda(pygame.sprite.Sprite):
         self.image = pygame.transform.scale(img, (30, 30))
         self.rect = self.image.get_rect()
         self.rect.x = x
-        self.rect.y = y
+        self.rect.y = y          
 
-    
-    def update(self, jogador):
-        if pygame.sprite.spritecollide(self, jogador, True):
-            qtd_moedas += 1
-            print(qtd_moedas)
+
+class Cracha(pygame.sprite.Sprite):
+
+    def __init__(self, x, y):
+        pygame.sprite.Sprite.__init__(self)
+        img = pygame.image.load(cracha_path)
+        self.image = pygame.transform.scale(img, (30, 30))
+        self.rect = self.image.get_rect()
+        self.rect.x = x
+        self.rect.y = y
+           
+
+class Cafe(pygame.sprite.Sprite):
+
+    def __init__(self, x, y):
+        pygame.sprite.Sprite.__init__(self)
+        img = pygame.image.load(cafe_path)
+        self.image = pygame.transform.scale(img, (30, 30))
+        self.rect = self.image.get_rect()
+        self.rect.x = x
+        self.rect.y = y
+           
