@@ -37,26 +37,11 @@ while running:
 
     relogio.tick(42)
     mundo.draw()
-    tela.fill((250, 250, 250))
     grupo_moedas.draw(tela)
     cracha.draw(tela)
     cafe.draw(tela)
 
-    livros_um = Obstaculos((360, 385), (40, 40), livro_path)
-    placa_um = Obstaculos((540, 385), (40, 40), placa_path)
-    livros_dois = Obstaculos((415, 234), (40, 40), livro_path)
-    placa_dois = Obstaculos((410, 83), (40, 40), placa_path)
-
-
-    #Testando a colisão com cada obstáculo
-    colisao_livro_um = livros_um.colisao(livros_um, placa_um, livros_dois, placa_dois)
-    colisao_placa_um = placa_um.colisao(livros_um, placa_um, livros_dois, placa_dois)
-    colisao_livro_dois = livros_dois.colisao(livros_um, placa_um, livros_dois, placa_dois)
-    colisao_placa_dois = placa_dois.colisao(livros_um, placa_um, livros_dois, placa_dois)
-
-
-    jogador.update(0,0, colisao_livro_um, colisao_placa_um, colisao_livro_dois, colisao_placa_dois, mundo, tela)
-
+    jogador.update(mundo)
 
     # checa se alguma moeda foi coletada
     if pygame.sprite.spritecollide(jogador, grupo_moedas, True):

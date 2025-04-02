@@ -4,8 +4,8 @@ from obstaculos import *
 from mapa import level
 pygame.init()
 
-LARGURA = 1000
-ALTURA = 700
+LARGURA = 1025
+ALTURA = 600
 tile_size = 25
 mapa = level()
 
@@ -34,6 +34,6 @@ class Mundo():
             cont_linhas += 1
    
     def draw(self):
-        tela.blit(self.background, (0,0))
+        tela.fill((250, 250, 250))
         for plat in self.plataformas:
             tela.blit(plat[0], plat[1])
