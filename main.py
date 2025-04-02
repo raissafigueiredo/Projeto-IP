@@ -8,8 +8,6 @@ from obstaculos import *
 pygame.init()
 
 relogio = pygame.time.Clock()
-livro_path = "Sources/livros.png"
-placa_path = "Sources/fonte.png"
 fonte = pygame.font.SysFont("comic sans", 15, True, False)
 
 running = True
@@ -33,7 +31,6 @@ cafe = mundo.cafes
 cafe_coletado = False
 cracha_coletado = False
 
-
 while running:
 
     relogio.tick(42)
@@ -42,20 +39,7 @@ while running:
     cracha.draw(tela)
     cafe.draw(tela)
 
-    livros_um = Obstaculos((360, 385), (40, 40), livro_path)
-    placa_um = Obstaculos((540, 385), (40, 40), placa_path)
-    livros_dois = Obstaculos((415, 234), (40, 40), livro_path)
-    placa_dois = Obstaculos((410, 83), (40, 40), placa_path)
-
-    #Testando a colisão com cada obstáculo
-    colisao_livro_um = livros_um.colisao(livros_um, placa_um, livros_dois, placa_dois)
-    colisao_placa_um = placa_um.colisao(livros_um, placa_um, livros_dois, placa_dois)
-    colisao_livro_dois = livros_dois.colisao(livros_um, placa_um, livros_dois, placa_dois)
-    colisao_placa_dois = placa_dois.colisao(livros_um, placa_um, livros_dois, placa_dois)
-
-
-    jogador.update(0,0, colisao_livro_um, colisao_placa_um, colisao_livro_dois, colisao_placa_dois, mundo, tela)
-
+    jogador.update(mundo)
 
     # checa se alguma moeda foi coletada
     if pygame.sprite.spritecollide(jogador, grupo_moedas, True):

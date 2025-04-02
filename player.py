@@ -1,6 +1,6 @@
 from mundo import *
 import pygame
-tela = pygame.display.set_mode((700, 450))
+tela = pygame.display.set_mode((1025, 600))
 
 # Classe player
 class Player():
@@ -92,13 +92,13 @@ class Player():
         # Limita o movimento do boneco
         if self.rect.left < 0:
             self.rect.left = 0
-        if self.rect.right > 700:
-            self.rect.right = 700
+        if self.rect.right > 1025:
+            self.rect.right = 1025
         if self.rect.top < 0:
             self.rect.top = 0
             self.gravity = 0
-        if self.rect.bottom > 450:
-            self.rect.bottom = 450
+        if self.rect.bottom > 600:
+            self.rect.bottom = 600
             self.no_chao = True 
 
         # Atualiza a tela
