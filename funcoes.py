@@ -1,7 +1,7 @@
 import pygame
+from globais import *
 pygame.init()
 
-tela = pygame.display.set_mode((1000, 700))
 BASE_IMG_PATH = 'Sources/'
 
 class Botao():
@@ -36,5 +36,6 @@ def load_imagem(path):
     img.set_colorkey((0,0,0))
     return img
 
-def draw_texto(texto):
-    pass
+def draw_texto(texto, fonte, cor, x, y, tela):
+    img = fonte.render(texto, True, cor)
+    tela.blit(img, (x,y))
