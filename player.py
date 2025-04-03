@@ -1,6 +1,5 @@
 from mundo import *
 import pygame
-tela = pygame.display.set_mode((1025, 600))
 
 # Classe player
 class Player():

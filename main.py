@@ -3,7 +3,6 @@ import sys
 from pygame.locals import *
 from mundo import *
 from player import *
-from obstaculos import *
 
 pygame.init()
 
@@ -12,13 +11,12 @@ fonte = pygame.font.SysFont("comic sans", 15, True, False)
 
 running = True
 mundo = Mundo(mapa)
+jogador = Player(50, 350)
 
 # Configura a janela
-icone_path = 'Sources/player.png'
-icone = pygame.image.load(icone_path)
+icone = player_img
 pygame.display.set_icon(icone)
 pygame.display.set_caption('Água e fogo no CIn, sem água e sem fogo')
-tela = mundo.tela
 
 
 # Inicializa as variáveis dos coletáveis
@@ -44,19 +42,16 @@ while running:
     # checa se alguma moeda foi coletada
     if pygame.sprite.spritecollide(jogador, grupo_moedas, True):
         qtd_moedas += 1
-        print(qtd_moedas)
 
     # checa se o crachá foi coletado
     if pygame.sprite.spritecollide(jogador, cracha, True):
         cracha_coletado = True
         qtd_cracha += 1
-        print(cracha_coletado)
 
     # checa se o café foi coletado
     if pygame.sprite.spritecollide(jogador, cafe, True):
         cafe_coletado = True
         qtd_cafe += 1
-        print(cafe_coletado)
 
 
     #exibir contagem de itens
