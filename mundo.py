@@ -45,7 +45,7 @@ class Mundo():
             cont_linhas += 1
    
     def draw(self):
-        tela.fill((250, 250, 250))
+        tela.fill(BRANCO)
         for plat in self.plataformas:
             tela.blit(plat[0], plat[1])
         self.obstaculos.draw(tela)
