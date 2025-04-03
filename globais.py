@@ -7,7 +7,7 @@ LARGURA = 1025
 ALTURA = 600
 tela = pygame.display.set_mode((LARGURA, ALTURA))
 TAM_COLECIONAVEIS = (25,25)
-TAM_OBSTACULOS = (50,50)
+TAM_OBSTACULOS = (25,25)
 
 
 # Assets

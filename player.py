@@ -69,7 +69,7 @@ class Player():
 
         # Configura o botao do pulo
         if key[pygame.K_w] and self.no_chao:
-            self.gravity = -15
+            self.gravity = -13
             self.no_chao = False 
 
         # Verifica colisoes com plataformas
