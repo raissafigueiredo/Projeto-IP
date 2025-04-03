@@ -36,6 +36,6 @@ def load_imagem(path):
     img.set_colorkey((0,0,0))
     return img
 
-def draw_texto(texto, fonte, cor, x, y):
+def draw_texto(texto, fonte, cor, x, y, tela):
     img = fonte.render(texto, True, cor)
     tela.blit(img, (x,y))

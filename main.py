@@ -3,6 +3,7 @@ import sys
 from pygame.locals import *
 from mundo import *
 from player import *
+from funcoes import draw_texto
 
 pygame.init()
 
@@ -54,19 +55,11 @@ while running:
         qtd_cafe += 1
 
 
-    #exibir contagem de itens
-    mensagem_moeda = f'Moedas: {qtd_moedas}'
-    texto_moeda = fonte.render(mensagem_moeda, False, (255, 255, 255))
+    # exibir contagem de itens
+    draw_texto(f'Moedas: {qtd_moedas}', fonte_1, PRETO, 10, 10, tela)
+    draw_texto(f'Crachá: {qtd_cracha}', fonte_1, PRETO, 10, 30, tela)
+    draw_texto(f'Cafés: {qtd_cafe}', fonte_1, PRETO, 10, 50, tela)
 
-    mensagem_cracha = f'Crachá: {qtd_cracha}'
-    texto_cracha = fonte.render(mensagem_cracha, False, (255, 255, 255))
-
-    mensagem_cafe = f'Cafés: {qtd_cafe}'
-    texto_cafe = fonte.render(mensagem_cafe, False, (255, 255, 255))
-
-    tela.blit(texto_moeda, (10, 10))
-    tela.blit(texto_cracha, (10, 30))
-    tela.blit(texto_cafe, (10, 50))
 
     # fechar jogo
     for event in pygame.event.get():

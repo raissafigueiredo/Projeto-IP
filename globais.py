@@ -11,11 +11,12 @@ TAM_COLECIONAVEIS = (25,25)
 TAM_OBSTACULOS = (50,50)
 
 # Fontes
-fonte_1 = pygame.font.SysFont('Consolas', 30)
+fonte_1 = pygame.font.SysFont('Consolas', 20)
 
 # Cores
 BRANCO = (250, 250, 250)
 PRETO = (0,0,0)
+AZUL_CLARO = (117, 179, 250)
 
 # Assets
 cafe_img = load_imagem('cafe.png')
