@@ -3,9 +3,9 @@ import sys
 
 pygame.init()
 
-tela = pygame.display.set_mode((700,450))
+tela = pygame.display.set_mode((1025,600))
 pygame.display.set_caption("botao!")
-fonte_principal= pygame.font.SysFont("comic sans", 50)
+fonte_principal= pygame.font.SysFont("consolas", 50)
 
 class Botao():
     def __init__(self, imagem, x_pos, y_pos, texto_input):
@@ -18,7 +18,7 @@ class Botao():
         self.texto_rect = self.texto.get_rect(center = (self.x_pos, self.y_pos))#texto que vê na tela
 
 
-    def uptade(self): #uptade method - colocar botões na tela
+    def uptade(self,tela): #uptade method - colocar botões na tela
         tela.blit(self.imagem, self.rect) 
         tela.blit(self.texto, self.texto_rect)
 
