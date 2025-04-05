@@ -29,24 +29,15 @@ class Mundo():
                     img_rect.y = cont_linhas * tile_size
                     tile = (img, img_rect)
                     self.plataformas.append(tile)
-
-
-
                 if tile == 2: # Adiciona uma pilha de livros
-                    livros = Objetos(livro_img, cont_cols * tile_size, cont_linhas * tile_size, TAM_OBSTACULOS)
+                    livros = Objetos(livro_img, cont_cols * tile_size +12.3, cont_linhas * tile_size+12.3, TAM_OBSTACULOS)
                     self.obstaculos.add(livros)
-                    
                 if tile == 3: # Adiciona água da esquerda
-                    agua_esq = Objetos(agua_esq_img, cont_cols * tile_size, cont_linhas * tile_size, TAM_OBSTACULOS)
+                    agua_esq = Objetos(agua_esq_img, cont_cols * tile_size+12.3, cont_linhas * tile_size+12.3, TAM_OBSTACULOS)
                     self.obstaculos.add(agua_esq)
-
                 if tile == 7: # Adiciona água da direita
-                    agua_dir = Objetos(agua_dir_img, cont_cols * tile_size, cont_linhas * tile_size, TAM_OBSTACULOS)
+                    agua_dir = Objetos(agua_dir_img, cont_cols * tile_size+12.3, cont_linhas * tile_size+12.3, TAM_OBSTACULOS)
                     self.obstaculos.add(agua_dir)
-
-
-
-
                 if tile == 4: # Adiciona uma moeda
                     moeda = Objetos(moeda_img, cont_cols * tile_size, cont_linhas * tile_size, TAM_COLECIONAVEIS)
                     self.moedas.add(moeda)
