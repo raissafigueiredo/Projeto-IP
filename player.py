@@ -35,7 +35,7 @@ class Player():
         self.width = self.imagem_player.get_width()
         self.height = self.imagem_player.get_height()
 
-    def update(self, mundo):
+    def update(self, mundo, estado_cafe):
         # Importa lista de plataformas
         plataformas = mundo.plataformas
 
@@ -69,8 +69,11 @@ class Player():
 
         # Configura o botao do pulo
         if key[pygame.K_w] and self.no_chao:
-            self.gravity = -12
+            self.gravity = -13
             self.no_chao = False 
+
+            if estado_cafe == True:
+                self.gravity = -17
 
         #Rects para verificar colisão com plataformas e obstáculos
         rect_foot = pygame.Rect(self.rect.x+10, self.rect.y + 60, self.width-20, 1)

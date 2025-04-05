@@ -29,6 +29,7 @@ cracha = mundo.crachas
 cafe = mundo.cafes
 cafe_coletado = False
 cracha_coletado = False
+pulo_cafe = False
 
 while running:
 
@@ -38,7 +39,7 @@ while running:
     cracha.draw(tela)
     cafe.draw(tela)
 
-    jogador.update(mundo)
+    jogador.update(mundo,pulo_cafe)
 
     # checa se alguma moeda foi coletada
     if pygame.sprite.spritecollide(jogador, grupo_moedas, True):
@@ -52,6 +53,7 @@ while running:
     # checa se o café foi coletado
     if pygame.sprite.spritecollide(jogador, cafe, True):
         cafe_coletado = True
+        pulo_cafe = True
         qtd_cafe += 1
 
 
