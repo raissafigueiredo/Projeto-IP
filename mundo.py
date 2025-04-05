@@ -30,8 +30,12 @@ class Mundo():
                     tile = (img, img_rect)
                     self.plataformas.append(tile)
                 if tile == 2: # Adiciona uma pilha de livros
-                    livros = Objetos(livro_img, cont_cols * tile_size +12.3, cont_linhas * tile_size+12.3, TAM_OBSTACULOS)
-                    self.obstaculos.add(livros)
+                    livro = pygame.transform.scale(livro_img, (TAM_OBSTACULOS))
+                    livro_rect = livro.get_rect()
+                    livro_rect.x = cont_cols * tile_size +12.3
+                    livro_rect.y = cont_linhas * tile_size+12.3
+                    tile = (TAM_OBSTACULOS)
+                    self.plataformas.append((livro, livro_rect))
                 if tile == 3: # Adiciona água da esquerda
                     agua_esq = Objetos(agua_esq_img, cont_cols * tile_size+12.3, cont_linhas * tile_size+12.3, TAM_OBSTACULOS)
                     self.obstaculos.add(agua_esq)
