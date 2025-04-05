@@ -31,6 +31,13 @@ cafe_coletado = False
 cracha_coletado = False
 pulo_cafe = False
 
+#variáveis do temporizador do café
+estado_cafe = False
+counter, text = 10, '10'.rjust(3)
+pygame.time.set_timer(pygame.USEREVENT, 1000)
+font = pygame.font.SysFont('Consolas', 30)
+
+
 while running:
 
     relogio.tick(42)
@@ -52,16 +59,36 @@ while running:
 
     # checa se o café foi coletado
     if pygame.sprite.spritecollide(jogador, cafe, True):
+        qtd_antiga = 0
         cafe_coletado = True
-        pulo_cafe = True
         qtd_cafe += 1
 
+        #faz a parte do segundo cafe funcionar
+        if qtd_cafe > qtd_antiga:
+            pulo_cafe = True
+
+        qtd_antiga = qtd_cafe
+
+        #pulo do café
+        if pulo_cafe == True:
+
+            for e in pygame.event.get():
+                if e.type == pygame.USEREVENT: 
+                    counter -= 1
+                    text = str(counter).rjust(3) if counter > 0 else 'boom!'
+
+                    if text == 'boom!':
+                        pulo_cafe = False 
+                        counter, text = 10, '10'.rjust(3)
+                        pygame.time.set_timer(pygame.USEREVENT, 1000)
+                
+                relogio.tick(60)
+            draw_texto(f'Tempo: {text}',fonte_1,PRETO,10,70,tela)
 
     # exibir contagem de itens
     draw_texto(f'Moedas: {qtd_moedas}', fonte_1, PRETO, 10, 10, tela)
     draw_texto(f'Crachá: {qtd_cracha}', fonte_1, PRETO, 10, 30, tela)
     draw_texto(f'Cafés: {qtd_cafe}', fonte_1, PRETO, 10, 50, tela)
-
 
     # fechar jogo
     for event in pygame.event.get():
