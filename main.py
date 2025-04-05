@@ -12,7 +12,7 @@ fonte = pygame.font.SysFont("comic sans", 15, True, False)
 
 running = True
 mundo = Mundo(mapa)
-jogador = Player(50, 350)
+jogador = Player(75, 515)
 
 # Configura a janela
 icone = player_img
