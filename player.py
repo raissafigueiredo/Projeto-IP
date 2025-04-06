@@ -38,6 +38,7 @@ class Player():
     def update(self, mundo, estado_cafe):
         # Importa lista de plataformas
         plataformas = mundo.plataformas
+        obstaculos = mundo.obstaculos
 
         # Checa se as teclas estão pressionadas
         key = pygame.key.get_pressed()
@@ -128,13 +129,13 @@ class Player():
         # Limita o movimento do boneco
         if self.rect.left < 0:
             self.rect.left = 0
-        if self.rect.right > 1025:
-            self.rect.right = 1025
+        if self.rect.right > LARGURA:
+            self.rect.right = LARGURA
         if self.rect.top < 0:
             self.rect.top = 0
             self.gravity = 0
-        if self.rect.bottom > 600:
-            self.rect.bottom = 600
+        if self.rect.bottom > ALTURA:
+            self.rect.bottom = ALTURA
             self.no_chao = True 
 
         # Atualiza a tela

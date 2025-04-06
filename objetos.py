@@ -26,4 +26,3 @@ class Objetos(pygame.sprite.Sprite):
         self.image = pygame.transform.scale(img, tamanho)
         self.rect = self.image.get_rect()
         self.rect.center = (x, y)
-  
