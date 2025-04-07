@@ -65,7 +65,7 @@ while running:
                 ganhou =  True
                 print('ganhou ebarr!')
             else:
-                draw_texto('Você precisa do crachá!', fonte_cracha, BRANCO, 900, 100)
+                draw_texto('Você precisa do crachá!', fonte_cracha, BRANCO, 850, 160)
 
             
         # checa se alguma moeda foi coletada
