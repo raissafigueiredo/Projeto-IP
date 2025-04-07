@@ -17,6 +17,7 @@ class Mundo():
         self.cafes = pygame.sprite.Group()
         self.crachas = pygame.sprite.Group()
         self.obstaculos = pygame.sprite.Group()
+        self.fundo = pygame.sprite.Group()
         self.catracas = pygame.sprite.Group()
 
         cont_linhas = 0
@@ -31,12 +32,12 @@ class Mundo():
                     tile = (img, img_rect)
                     self.plataformas.append(tile)
                 if tile == 2: # Adiciona uma pilha de livros
-                    img = pygame.transform.scale(livro_img, (tile_size, tile_size))
-                    img_rect = img.get_rect()
-                    img_rect.x = cont_cols * tile_size
-                    img_rect.y = cont_linhas * tile_size
-                    tile = (img, img_rect)
-                    self.plataformas.append(tile)
+                    livro = pygame.transform.scale(livro_img, (TAM_OBSTACULOS))
+                    livro_rect = livro.get_rect()
+                    livro_rect.x = cont_cols * tile_size + 12.3
+                    livro_rect.y = cont_linhas * tile_size
+                    tile = (TAM_OBSTACULOS)
+                    self.plataformas.append((livro, livro_rect))
                 if tile == 3: # Adiciona água da esquerda
                     agua_esq = Agua(agua_esq_img, cont_cols * tile_size, cont_linhas * tile_size, TAM_OBSTACULOS)
                     self.obstaculos.add(agua_esq)
@@ -44,7 +45,7 @@ class Mundo():
                     agua_dir = Agua(agua_dir_img, cont_cols * tile_size, cont_linhas * tile_size, TAM_OBSTACULOS)
                     self.obstaculos.add(agua_dir)
                 if tile == 4: # Adiciona uma moeda
-                    moeda = Objetos(moeda_img, cont_cols * tile_size, cont_linhas * tile_size, TAM_MOEDAS)
+                    moeda = Objetos(moeda_img, cont_cols * tile_size, cont_linhas * tile_size, TAM_COLECIONAVEIS)
                     self.moedas.add(moeda)
                 if tile == 5: # Adiciona um café
                     cafe = Objetos(cafe_img, cont_cols * tile_size, cont_linhas * tile_size, TAM_COLECIONAVEIS)
@@ -52,15 +53,28 @@ class Mundo():
                 if tile == 6: # Adiciona um crachá
                     cracha = Objetos(cracha_img, cont_cols * tile_size, cont_linhas * tile_size, TAM_COLECIONAVEIS)
                     self.crachas.add(cracha)
-                if tile == 8: # Adiciona a catraca
+                if tile == 8:
+                    porta = Objetos(porta_img, cont_cols * tile_size, cont_linhas * tile_size + 2.2, (62,95))
+                    self.fundo.add(porta)
+                if tile == 9:
+                    robo_cin = Objetos(robo_cin_img, cont_cols * tile_size, cont_linhas * tile_size, (130,90))
+                    self.fundo.add(robo_cin)
+                if tile == 10:
+                    janela = Objetos(janela_img, cont_cols * tile_size, cont_linhas * tile_size, (86,52))
+                    self.fundo.add(janela)
+                if tile == 11:
+                    jeep = Objetos(jeep_img, cont_cols * tile_size, cont_linhas * tile_size, (130,90))
+                    self.fundo.add(jeep)
+                if tile == 12: # Adiciona a catraca
                     catraca = Objetos(catraca_img, cont_cols * tile_size, cont_linhas * tile_size, (40,40))
                     self.catracas.add(catraca)
-                
+
                 cont_cols += 1
             cont_linhas += 1
    
     def draw(self):
-        tela.fill(AZUL_CLARO)
+        tela.fill(VERMELHO_TESTE)
+        self.fundo.draw(tela)
         for plat in self.plataformas:
             tela.blit(plat[0], plat[1])
         self.obstaculos.draw(tela)
