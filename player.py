@@ -1,7 +1,7 @@
 from mundo import *
 import pygame
 
-# Classe player
+
 class Player():
     def __init__(self, x, y):
         # Imagem do player

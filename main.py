@@ -13,6 +13,8 @@ fonte = pygame.font.SysFont("comic sans", 15, True, False)
 running = True
 mundo = Mundo(mapa)
 jogador = Player(75, 515)
+perdeu = False
+ganhou = False
 
 # Configura a janela
 icone = player_img
@@ -39,9 +41,6 @@ counter, text = 10, '10'.rjust(3)
 pygame.time.set_timer(pygame.USEREVENT, 1000)
 font = pygame.font.SysFont('Consolas', 30)
 
-# Condições do jogo
-perdeu = False
-ganhou = False
 
 while running:
     if perdeu == False:
@@ -51,7 +50,7 @@ while running:
         cracha.draw(tela)
         cafe.draw(tela)
 
-        jogador.update(mundo,pulo_cafe)
+        jogador.update(mundo, pulo_cafe)
         
         #checa se o jogador tocou na água:
         if pygame.sprite.spritecollide(jogador, grupo_obstaculos, False):
@@ -59,6 +58,15 @@ while running:
             print('perdeu mane')
             jogador.rect.x = 75
             jogador.rect.y = 515
+
+        #checa se o jogador chegou até a catraca:
+        if pygame.sprite.spritecollide(jogador, catraca, False):
+            if cracha_coletado:
+                ganhou =  True
+                print('ganhou ebarr!')
+            else:
+                draw_texto('Você precisa do crachá!', fonte_cracha, BRANCO, 900, 100)
+
             
         # checa se alguma moeda foi coletada
         if pygame.sprite.spritecollide(jogador, grupo_moedas, True):
