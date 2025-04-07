@@ -1,11 +1,12 @@
 from mundo import *
 import pygame
 
-
+# Classe player
 class Player():
     def __init__(self, x, y):
         # Imagem do player
-        self.imagem_player = pygame.image.load('Sources/personagem_andar_0.png')
+        img = pygame.image.load('Sources/personagem_andar_0.png')
+        self.imagem_player = pygame.transform.scale(img, (30, 50))
         self.rect = self.imagem_player.get_rect()
 
         # Criação da lista com sprites
@@ -15,9 +16,9 @@ class Player():
         
         for num in range(4):
             img_right = pygame.image.load(f'Sources/personagem_andar_{num}.png')
-            self.sprites_direita.append(pygame.transform.scale(img_right, (30, 60)))
+            self.sprites_direita.append(pygame.transform.scale(img_right, (30, 50)))
             img_left = pygame.transform.flip(img_right, True, False)
-            self.sprites_esquerda.append(pygame.transform.scale(img_left, (30, 60)))
+            self.sprites_esquerda.append(pygame.transform.scale(img_left, (30, 50)))
 
         self.index = 0
 
@@ -38,12 +39,11 @@ class Player():
     def update(self, mundo, estado_cafe):
         # Importa lista de plataformas
         plataformas = mundo.plataformas
-        obstaculos = mundo.obstaculos
 
         # Checa se as teclas estão pressionadas
         key = pygame.key.get_pressed()
                 
-        if key[pygame.K_a]:
+        if (key[pygame.K_a] or key[pygame.K_LEFT]):
             self.direcao = 0
             self.rect.x -= self.speed_x
             self.index += 0.2
@@ -51,7 +51,7 @@ class Player():
                 self.index = 1
             self.imagem_player = self.sprites_esquerda[int(self.index)]
 
-        if key[pygame.K_d]:
+        if (key[pygame.K_d] or key[pygame.K_RIGHT]):
             self.direcao = 1
             self.rect.x += self.speed_x
             self.index += 0.2
@@ -59,7 +59,7 @@ class Player():
                 self.index = 1
             self.imagem_player = self.sprites_direita[int(self.index)]
 
-        if not key[pygame.K_a] and not key[pygame.K_d]:
+        if not (key[pygame.K_a] or key[pygame.K_LEFT]) and not (key[pygame.K_d] or key[pygame.K_RIGHT]):
             self.index = 0
             self.imagem_player = self.sprites_direita[self.index] if self.direcao == 1 else self.sprites_esquerda[self.index]
 
@@ -69,16 +69,15 @@ class Player():
             self.gravity = 15
 
         # Configura o botao do pulo
-        if key[pygame.K_w] and self.no_chao:
+        if (key[pygame.K_w] or key[pygame.K_SPACE]) and self.no_chao:
             self.gravity = -12
             self.no_chao = False 
 
-            #booster pulo café
             if estado_cafe == True:
                 self.gravity = -16
 
         #Rects para verificar colisão com plataformas e obstáculos
-        rect_foot = pygame.Rect(self.rect.x+10, self.rect.y + 60, self.width-20, 1)
+        rect_foot = pygame.Rect(self.rect.x+5, self.rect.y + 50, self.width-10, 1)
         rect_head = pygame.Rect(self.rect.x+10, self.rect.y, self.width-20, 1)
         rect_left = pygame.Rect(self.rect.x, self.rect.y+8, 1, self.height-13)
         rect_right = pygame.Rect(self.rect.x+29, self.rect.y+8, 1, self.height-13)
@@ -129,13 +128,13 @@ class Player():
         # Limita o movimento do boneco
         if self.rect.left < 0:
             self.rect.left = 0
-        if self.rect.right > LARGURA:
-            self.rect.right = LARGURA
+        if self.rect.right > 1025:
+            self.rect.right = 1025
         if self.rect.top < 0:
             self.rect.top = 0
             self.gravity = 0
-        if self.rect.bottom > ALTURA:
-            self.rect.bottom = ALTURA
+        if self.rect.bottom > 600:
+            self.rect.bottom = 600
             self.no_chao = True 
 
         # Atualiza a tela
