@@ -7,7 +7,8 @@ ALTURA = 600
 tela = pygame.display.set_mode((LARGURA, ALTURA))
 
 # Definições dos objetos
-TAM_COLECIONAVEIS = (25,25)
+TAM_COLECIONAVEIS = (30,30)
+TAM_MOEDAS = (20,20)
 TAM_OBSTACULOS = (25,25)
 
 # Fontes
@@ -23,6 +24,7 @@ VERMELHO = (180, 0,0)
 cafe_img = load_imagem('cafe.png')
 background_img = load_imagem('Cenário.jpeg')
 cracha_img = load_imagem('cracha.png')
+catraca_img = load_imagem('catraca.png')
 piso_img = load_imagem('piso.png')
 agua_esq_img = load_imagem('agua_esq.png')
 agua_dir_img = load_imagem('agua_dir.png')

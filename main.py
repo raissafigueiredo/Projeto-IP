@@ -27,6 +27,7 @@ qtd_cafe = 0
 grupo_obstaculos = mundo.obstaculos
 grupo_moedas = mundo.moedas
 cracha = mundo.crachas
+catraca = mundo.catracas
 cafe = mundo.cafes
 cafe_coletado = False
 cracha_coletado = False
@@ -37,7 +38,10 @@ estado_cafe = False
 counter, text = 10, '10'.rjust(3)
 pygame.time.set_timer(pygame.USEREVENT, 1000)
 font = pygame.font.SysFont('Consolas', 30)
+
+# Condições do jogo
 perdeu = False
+ganhou = False
 
 while running:
     if perdeu == False:
