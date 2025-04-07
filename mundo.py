@@ -39,11 +39,8 @@ class Mundo():
                     tile = (TAM_OBSTACULOS)
                     self.plataformas.append((livro, livro_rect))
                 if tile == 3: # Adiciona água da esquerda
-                    agua_esq = Agua(agua_esq_img, cont_cols * tile_size, cont_linhas * tile_size, TAM_OBSTACULOS)
-                    self.obstaculos.add(agua_esq)
-                if tile == 7: # Adiciona água da direita
-                    agua_dir = Agua(agua_dir_img, cont_cols * tile_size, cont_linhas * tile_size, TAM_OBSTACULOS)
-                    self.obstaculos.add(agua_dir)
+                    agua = Agua(agua_img, cont_cols * tile_size, cont_linhas * tile_size, TAM_AGUA)
+                    self.obstaculos.add(agua)
                 if tile == 4: # Adiciona uma moeda
                     moeda = Objetos(moeda_img, cont_cols * tile_size, cont_linhas * tile_size, TAM_COLECIONAVEIS)
                     self.moedas.add(moeda)
@@ -53,6 +50,9 @@ class Mundo():
                 if tile == 6: # Adiciona um crachá
                     cracha = Objetos(cracha_img, cont_cols * tile_size, cont_linhas * tile_size, TAM_COLECIONAVEIS)
                     self.crachas.add(cracha)
+                if tile == 7: # Adiciona a catraca
+                    catraca = Objetos(catraca_img, cont_cols * tile_size, cont_linhas * tile_size, (40,40))
+                    self.catracas.add(catraca)
                 if tile == 8:
                     porta = Objetos(porta_img, cont_cols * tile_size, cont_linhas * tile_size + 2.2, (62,95))
                     self.fundo.add(porta)
@@ -65,9 +65,6 @@ class Mundo():
                 if tile == 11:
                     jeep = Objetos(jeep_img, cont_cols * tile_size, cont_linhas * tile_size, (130,90))
                     self.fundo.add(jeep)
-                if tile == 12: # Adiciona a catraca
-                    catraca = Objetos(catraca_img, cont_cols * tile_size, cont_linhas * tile_size, (40,40))
-                    self.catracas.add(catraca)
 
                 cont_cols += 1
             cont_linhas += 1
