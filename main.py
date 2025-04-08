@@ -34,6 +34,7 @@ cafe = mundo.cafes
 cafe_coletado = False
 cracha_coletado = False
 pulo_cafe = False
+inicio = True
 
 #variáveis do temporizador do café
 estado_cafe = False
@@ -43,7 +44,14 @@ font = pygame.font.SysFont('Consolas', 30)
 
 
 while running:
-    if perdeu == False:
+    if inicio == True:
+        tela.blit(instrucoes_img, (0,0))
+        key = pygame.key.get_pressed()
+        if key[pygame.K_s]:
+            inicio = False
+
+
+    if perdeu == False and inicio == False:
         relogio.tick(42)
         mundo.draw()
         grupo_moedas.draw(tela)
@@ -64,6 +72,8 @@ while running:
             if cracha_coletado:
                 ganhou =  True
                 print('ganhou ebarr!')
+                jogador.rect.x = 75
+                jogador.rect.y = 515
             else:
                 draw_texto('Você precisa do crachá!', fonte_cracha, BRANCO, 850, 160)
 
@@ -110,18 +120,41 @@ while running:
         draw_texto(f'Crachá: {qtd_cracha}', fonte_1, PRETO, 10, 30, tela)
         draw_texto(f'Cafés: {qtd_cafe}', fonte_1, PRETO, 10, 50, tela)
 
-        pygame.display.update()
-
-    elif perdeu == True:
+    if ganhou == True:
+        tela.blit(win_img, (0,0))
         key = pygame.key.get_pressed()
         if key[pygame.K_r]:
-            perdeu = False
 
+            qtd_moedas = 0
+            qtd_cracha = 0
+            qtd_cafe = 0
+
+            ganhou = False
+
+
+    if perdeu == True :
+        tela.blit(game_over_img, (0,0))
+        key = pygame.key.get_pressed()
+        if key[pygame.K_r]:
+
+            qtd_moedas = 0
+            qtd_cracha = 0
+            qtd_cafe = 0
+
+            perdeu = False
+        
+        
+    
+
+    pygame.display.update()
 
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             running = False
         tela.blit(jogador.imagem_player, jogador.rect)
+
+    
+
 
 
 pygame.quit()
