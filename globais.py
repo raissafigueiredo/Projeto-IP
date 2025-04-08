@@ -9,6 +9,7 @@ tela = pygame.display.set_mode((LARGURA, ALTURA))
 # Definições dos objetos
 TAM_COLECIONAVEIS = (25,25)
 TAM_OBSTACULOS = (25,25)
+TAM_AGUA = (50, 25)
 
 # Fontes
 fonte_1 = pygame.font.SysFont('Consolas', 20)
@@ -30,6 +31,7 @@ livro_img = load_imagem('livros.png')
 moeda_img = load_imagem('moedas.png')
 player_img = load_imagem('personagem_andar_1.png')
 catraca_img = load_imagem('catraca.png')
+agua_img = load_imagem('agua_junta.png')
 
 porta_img = load_imagem('porta.png')
 robo_cin_img = load_imagem('robo_cin.png')
