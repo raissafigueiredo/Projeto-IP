@@ -69,7 +69,7 @@ class Player():
             self.gravity = 15
 
         # Configura o botao do pulo
-        if (key[pygame.K_w] or key[pygame.K_SPACE]) and self.no_chao:
+        if (key[pygame.K_w] or key[pygame.K_SPACE] or key[pygame.K_UP]) and self.no_chao:
             self.gravity = -12
             self.no_chao = False 
 
