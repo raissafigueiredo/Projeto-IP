@@ -75,14 +75,14 @@ font = pygame.font.SysFont('Consolas', 30)
 
 
 while running:
-   # if inicio == True:
-    #    tela.blit(instrucoes_img, (0,0))
-    #    key = pygame.key.get_pressed()
-    #    if key[pygame.K_s]:
-    #        inicio = False
+    #if inicio == True:
+        #tela.blit(instrucoes_img, (0,0))
+        #key = pygame.key.get_pressed()
+        #if key[pygame.K_s]:
+            #inicio = False
 
 
-    if perdeu == False :##and inicio == False
+    if perdeu == False: #and inicio == False:
         relogio.tick(42)
         mundo.draw()
         grupo_moedas.draw(tela)
@@ -122,13 +122,12 @@ while running:
         if pygame.sprite.spritecollide(jogador, cafe, True):
             qtd_antiga = 0
             cafe_coletado = True
+            pulo_cafe = True
             qtd_cafe += 1
 
-            #faz a parte do segundo cafe funcionar
-            if qtd_cafe > qtd_antiga:
-                pulo_cafe = True
-
-            qtd_antiga = qtd_cafe
+            counter = 10
+            text = str(counter).rjust(3)
+            pygame.time.set_timer(pygame.USEREVENT, 1000)  # Reinicia o timer
 
         #pulo do café
         if pulo_cafe == True:
@@ -158,7 +157,7 @@ while running:
             reiniciar_jogo()
 
     if ganhou == True:
-    #    tela.blit(win_img, (0,0))
+        #tela.blit(win_img, (0,0))
         key = pygame.key.get_pressed()
         if key[pygame.K_r]:
 
