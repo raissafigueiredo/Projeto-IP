@@ -106,7 +106,7 @@ while running:
                 jogador.rect.x = 75
                 jogador.rect.y = 515
             else:
-                draw_texto('Você precisa do crachá!', "comic sans", BRANCO, 850, 160)
+                draw_texto('Você precisa do crachá!', fonte_1, BRANCO, 650, 550, tela)
 
             
         # checa se alguma moeda foi coletada
