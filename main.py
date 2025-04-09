@@ -76,7 +76,7 @@ font = pygame.font.SysFont('Consolas', 30)
 
 while running:
     if inicio == True:
-        tela.blit(instrucoes_img, (0,0))
+        tela.blit(tela_menu, (0,0))
         key = pygame.key.get_pressed()
         if key[pygame.K_s]:
             inicio = False
@@ -157,7 +157,7 @@ while running:
             reiniciar_jogo()
 
     if ganhou == True:
-        tela.blit(win_img, (0,0))
+        tela.blit(tela_ganhou, (0,0))
         key = pygame.key.get_pressed()
         if key[pygame.K_r]:
 
@@ -166,7 +166,7 @@ while running:
 
 
     if perdeu == True :
-        tela.blit(game_over_img, (0,0))
+        tela.blit(tela_perdeu, (0,0))
         key = pygame.key.get_pressed()
         if key[pygame.K_r]:
 
