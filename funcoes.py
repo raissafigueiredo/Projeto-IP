@@ -31,11 +31,4 @@ class Botao():
             self.texto = self.fonte.render(self.texto_input, True, "white")
 
 
-def load_imagem(path):
-    img = pygame.image.load(BASE_IMG_PATH + path).convert()
-    img.set_colorkey((0,0,0))
-    return img
 
-def draw_texto(texto, fonte, cor, x, y, tela):
-    img = fonte.render(texto, True, cor)
-    tela.blit(img, (x,y))

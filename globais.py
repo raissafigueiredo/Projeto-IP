@@ -1,5 +1,5 @@
 import pygame
-from funcoes import load_imagem
+pygame.init()
 
 # Definições da tela
 LARGURA = 1025
@@ -21,6 +21,17 @@ PRETO = (0,0,0)
 AZUL_CLARO = (117, 179, 250)
 VERMELHO = (180, 0,0)
 VERMELHO_TESTE = (180,45,20)
+
+
+# Funções
+def load_imagem(path):
+    img = pygame.image.load('Sources/' + path).convert()
+    img.set_colorkey((0,0,0))
+    return img
+
+def draw_texto(texto, fonte, cor, x, y, tela):
+    img = fonte.render(texto, True, cor)
+    tela.blit(img, (x,y))
 
 # Assets
 cafe_img = load_imagem('cafe.png')

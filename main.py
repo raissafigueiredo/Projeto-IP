@@ -3,7 +3,6 @@ import sys
 from pygame.locals import *
 from mundo import *
 from player import *
-from funcoes import draw_texto
 from botão import Botao
 from globais import *
 
