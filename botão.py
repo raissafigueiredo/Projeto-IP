@@ -5,11 +5,11 @@ pygame.init()
 
 tela = pygame.display.set_mode((1025,600))
 pygame.display.set_caption("botao!")
-fonte_principal= pygame.font.SysFont("consolas", 50)
 
 class Botao():
-    def __init__(self, imagem, x_pos, y_pos, texto_input):
-        self.imagem = imagem
+    def __init__(self, imagem, x_pos, y_pos, texto_input, tamanho_botao, tamanho_fonte):
+        fonte_principal= pygame.font.SysFont("consolas", tamanho_fonte)
+        self.imagem = pygame.transform.scale(imagem, tamanho_botao)
         self.x_pos = x_pos
         self.y_pos = y_pos
         self.rect = self.imagem.get_rect(center=(self.x_pos, self.y_pos)) #centro do botão na pos x e y
@@ -25,8 +25,11 @@ class Botao():
     def check_for_input(self, posicao): #onde o mouse clica
         if posicao[0] in range(self.rect.left, self.rect.right) and posicao[1] in range(self.rect.top, self.rect.bottom): #0=x e 1=y
             print("botao pressionado")
+            return True
+        return False
 
-    def changecolor(self, posicao):
+    def changecolor(self, posicao, tamanho_fonte):
+        fonte_principal= pygame.font.SysFont("consolas", tamanho_fonte)
         if posicao[0] in range(self.rect.left, self.rect.right) and posicao[1] in range(self.rect.top, self.rect.bottom): #0=x e 1=y
             self.texto = fonte_principal.render(self.texto_input, True, "gray")
         else:
