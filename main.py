@@ -75,14 +75,14 @@ font = pygame.font.SysFont('Consolas', 30)
 
 
 while running:
-    #if inicio == True:
-        #tela.blit(instrucoes_img, (0,0))
-        #key = pygame.key.get_pressed()
-        #if key[pygame.K_s]:
-            #inicio = False
+    if inicio == True:
+        tela.blit(instrucoes_img, (0,0))
+        key = pygame.key.get_pressed()
+        if key[pygame.K_s]:
+            inicio = False
 
 
-    if perdeu == False: #and inicio == False:
+    if perdeu == False and inicio == False:
         relogio.tick(42)
         mundo.draw()
         grupo_moedas.draw(tela)
@@ -157,16 +157,16 @@ while running:
             reiniciar_jogo()
 
     if ganhou == True:
-        #tela.blit(win_img, (0,0))
+        tela.blit(win_img, (0,0))
         key = pygame.key.get_pressed()
         if key[pygame.K_r]:
 
             reiniciar_jogo()
-#            ganhou = False
+            ganhou = False
 
 
     if perdeu == True :
-        #tela.blit(game_over_img, (0,0))
+        tela.blit(game_over_img, (0,0))
         key = pygame.key.get_pressed()
         if key[pygame.K_r]:
 
