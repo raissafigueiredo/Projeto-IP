@@ -5,6 +5,7 @@ from mundo import *
 from player import *
 from botão import Botao
 from globais import *
+from telas import *
 
 pygame.init()
 
@@ -71,127 +72,17 @@ pygame.time.set_timer(pygame.USEREVENT, 1000)
 font = pygame.font.SysFont('Consolas', 30)
 
 instrucoes_ver = False
-
-def menu():
-    if inicio == True:
-            
-            instrucoes_ver = False
-            creditos_ver = False
-
-            tela.blit(tela_menu, (0,0))
-            
-            MOUSE_MENU_POS = pygame.mouse.get_pos()
-
-            iniciar_botao = Botao(botao_img, 900, 400, 'Iniciar', (100, 60), 30)
-
-            instrucoes_botao = Botao(botao_img, 700, 400, 'Instruções', (100, 60), 30)
-
-            creditos_botao = Botao(botao_img, 500, 400, 'Créditos', (100, 60), 30)
-
-            draw_texto(f'MENU', fonte_1, PRETO, 10, 10, tela)
-
-            for botao in [iniciar_botao, instrucoes_botao, creditos_botao]:
-                botao.changecolor(MOUSE_MENU_POS, 30)
-                botao.uptade(tela)
-
-            for event in pygame.event.get():
-                if event.type == pygame.QUIT:
-                    pygame.quit()
-                    sys.exit()
-                if event.type == pygame.MOUSEBUTTONDOWN:
-                    if iniciar_botao.check_for_input(MOUSE_MENU_POS):
-                        inicio = False
-                    if instrucoes_botao.check_for_input(MOUSE_MENU_POS) == True:
-                        inicio = instrucoes()
-                        instrucoes_ver = True
-
-                    if creditos_botao.check_for_input(MOUSE_MENU_POS) == True:
-                        inicio = creditos()
-                        creditos_ver = True
-
-def instrucoes():
-    instrucoes_mouse_pos = pygame.mouse.get_pos()
-
-    MOUSE_MENU_POS = pygame.mouse.get_pos()
-
-    tela.fill(PRETO)
-    tela.blit(tela_instrucoes, (0,0))
-
-    menu_botao = Botao(botao_img, 600, 300, 'Menu', (96, 33), 30)
-
-    for botao in [menu_botao]:
-        botao.changecolor(MOUSE_MENU_POS, 30)
-        botao.uptade(tela)
-
-    for event in pygame.event.get():
-        if event.type == pygame.QUIT:
-            pygame.quit()
-            sys.exit()
-        if event.type == pygame.MOUSEBUTTONDOWN:
-            if menu_botao.check_for_input(MOUSE_MENU_POS):
-                inicio = True
-                menu()
-    return False
-
-def creditos ():
-    creditos_mouse_pos = pygame.mouse.get_pos()
-
-    tela.fill(PRETO)
-    tela.blit(tela_creditos, (0,0))
-
-    menu_botao = Botao(botao_img, 600, 300, 'Menu', (96, 33), 30)
-
-    menu_botao.changecolor(creditos_mouse_pos, 30)
-    menu_botao.uptade(tela)
-
-    for event in pygame.event.get():
-        if event.type == pygame.QUIT:
-            pygame.quit()
-            sys.exit()
-        if event.type == pygame.MOUSEBUTTONDOWN:
-            if menu_botao.check_for_input(creditos_mouse_pos):
-                inicio = True
-                menu()
-    return False
-
-
+creditos_ver = False
 
 while running:
     if inicio == True:
+        inicio, instrucoes_ver, creditos_ver = menu()
+    
+    if creditos_ver == True:
+        inicio, creditos_ver = creditos()
 
-        instrucoes_ver = False
-        creditos_ver = False
-
-        tela.blit(tela_menu, (0,0))
-        
-        MOUSE_MENU_POS = pygame.mouse.get_pos()
-
-        iniciar_botao = Botao(botao_img, 900, 400, 'Iniciar', (160, 55), 30)
-
-        instrucoes_botao = Botao(botao_img, 700, 400, 'Instruções', (160, 55), 30)
-
-        creditos_botao = Botao(botao_img, 500, 400, 'Créditos', (160, 55), 30)
-
-        draw_texto(f'MENU', fonte_1, PRETO, 10, 10, tela)
-
-        for botao in [iniciar_botao, instrucoes_botao, creditos_botao]:
-            botao.changecolor(MOUSE_MENU_POS, 30)
-            botao.uptade(tela)
-
-        for event in pygame.event.get():
-            if event.type == pygame.QUIT:
-                pygame.quit()
-                sys.exit()
-            if event.type == pygame.MOUSEBUTTONDOWN:
-                if iniciar_botao.check_for_input(MOUSE_MENU_POS):
-                    inicio = False
-                if instrucoes_botao.check_for_input(MOUSE_MENU_POS) == True:
-                    inicio = instrucoes()
-                    instrucoes_ver = True
-
-                if creditos_botao.check_for_input(MOUSE_MENU_POS) == True:
-                    inicio = creditos()
-                    creditos_ver = True
+    if instrucoes_ver == True:
+        inicio, instrucoes_ver = instrucoes()
                 
     if perdeu == False and inicio == False and instrucoes_ver == False and creditos_ver == False:
         relogio.tick(42)
