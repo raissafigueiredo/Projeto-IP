@@ -1,5 +1,4 @@
 import pygame
-from globais import *
 
 class Objetos(pygame.sprite.Sprite):
 

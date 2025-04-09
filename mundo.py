@@ -36,13 +36,12 @@ class Mundo():
                     livro_rect = livro.get_rect()
                     livro_rect.x = cont_cols * tile_size + 12.3
                     livro_rect.y = cont_linhas * tile_size
-                    tile = (TAM_OBSTACULOS)
                     self.plataformas.append((livro, livro_rect))
                 if tile == 3: # Adiciona água da esquerda
                     agua = Agua(agua_img, cont_cols * tile_size, cont_linhas * tile_size, TAM_AGUA)
                     self.obstaculos.add(agua)
                 if tile == 4: # Adiciona uma moeda
-                    moeda = Objetos(moeda_img, cont_cols * tile_size, cont_linhas * tile_size, TAM_COLECIONAVEIS)
+                    moeda = Objetos(moeda_img, cont_cols * tile_size, cont_linhas * tile_size, (20,28))
                     self.moedas.add(moeda)
                 if tile == 5: # Adiciona um café
                     cafe = Objetos(cafe_img, cont_cols * tile_size, cont_linhas * tile_size, TAM_COLECIONAVEIS)

@@ -203,6 +203,7 @@ while running:
         grupo_moedas.draw(tela)
         cracha.draw(tela)
         cafe.draw(tela)
+        draw_score(tela, qtd_moedas, qtd_cracha, pulo_cafe, counter)
 
         jogador.update(mundo, pulo_cafe)
         
@@ -257,13 +258,6 @@ while running:
                         counter, text = 10, '10'.rjust(3)
                         pygame.time.set_timer(pygame.USEREVENT, 1000)
                 
-                relogio.tick(60)
-            draw_texto(f'Tempo: {text}',fonte_1,PRETO,10,70,tela)
-
-        # exibir contagem de itens
-        draw_texto(f'Moedas: {qtd_moedas}', fonte_1, PRETO, 10, 10, tela)
-        draw_texto(f'Crachá: {qtd_cracha}', fonte_1, PRETO, 10, 30, tela)
-        draw_texto(f'Cafés: {qtd_cafe}', fonte_1, PRETO, 10, 50, tela)
 
         # se a pessoa quiser reiniciar a qualquer momento
         key = pygame.key.get_pressed()
