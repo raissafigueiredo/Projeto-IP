@@ -20,7 +20,7 @@ ganhou = False
 #função para reiniciar
 def reiniciar_jogo():
     global mundo, jogador, grupo_obstaculos, grupo_moedas, cracha, cafe, catraca
-    global qtd_moedas, qtd_cracha, qtd_cafe, cafe_coletado, cracha_coletado, pulo_cafe
+    global qtd_moedas, qtd_cracha, cracha_coletado, pulo_cafe
     global perdeu, ganhou, counter, text
     
     # Recria o mundo e todos os objetos
@@ -37,8 +37,6 @@ def reiniciar_jogo():
     # Reinicia todas as variáveis 
     qtd_moedas = 0
     qtd_cracha = 0
-    qtd_cafe = 0
-    cafe_coletado = False
     cracha_coletado = False
     pulo_cafe = False
     perdeu = False
@@ -57,13 +55,11 @@ pygame.display.set_caption('Água e fogo no CIn, sem água e sem fogo')
 # Inicializa as variáveis dos coletáveis
 qtd_moedas = 0
 qtd_cracha = 0
-qtd_cafe = 0
 grupo_obstaculos = mundo.obstaculos
 grupo_moedas = mundo.moedas
 cracha = mundo.crachas
 catraca = mundo.catracas
 cafe = mundo.cafes
-cafe_coletado = False
 cracha_coletado = False
 pulo_cafe = False
 inicio = True
@@ -237,26 +233,17 @@ while running:
         # checa se o café foi coletado
         if pygame.sprite.spritecollide(jogador, cafe, True):
             qtd_antiga = 0
-            cafe_coletado = True
             pulo_cafe = True
-            qtd_cafe += 1
-
             counter = 10
-            text = str(counter).rjust(3)
             pygame.time.set_timer(pygame.USEREVENT, 1000)  # Reinicia o timer
 
         #pulo do café
         if pulo_cafe == True:
-
             for e in pygame.event.get():
                 if e.type == pygame.USEREVENT: 
                     counter -= 1
-                    text = str(counter).rjust(3) if counter > 0 else 'boom!'
-
-                    if text == 'boom!':
-                        pulo_cafe = False 
-                        counter, text = 10, '10'.rjust(3)
-                        pygame.time.set_timer(pygame.USEREVENT, 1000)
+                    if counter == 0:
+                        pulo_cafe = False
                 
 
         # se a pessoa quiser reiniciar a qualquer momento
