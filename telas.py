@@ -1,5 +1,10 @@
+import pygame
+import sys
+from botão import Botao
+from assets import *
 from globais import *
-from botão import *
+
+tela = pygame.display.set_mode((1025, 600))
 
 def menu():
 
@@ -42,6 +47,8 @@ def menu():
     return inicio, instrucoes_ver, creditos_ver
 
 def instrucoes():
+    inicio = False
+    instrucao = True
     instrucoes_mouse_pos = pygame.mouse.get_pos()
 
     MOUSE_MENU_POS = pygame.mouse.get_pos()
@@ -62,29 +69,29 @@ def instrucoes():
         if event.type == pygame.MOUSEBUTTONDOWN:
             if menu_botao.check_for_input(MOUSE_MENU_POS):
                 inicio = True
-                menu()
-    return False
+                instrucao = False
+    return inicio, instrucao
 
 def creditos ():
+    iniciar = False
     creditos = True
-    while creditos == True:
-        iniciar = False
-        creditos_mouse_pos = pygame.mouse.get_pos()
+    creditos_mouse_pos = pygame.mouse.get_pos()
 
-        tela.fill(PRETO)
-        tela.blit(tela_creditos, (0,0))
+    tela.fill(PRETO)
+    tela.blit(tela_creditos, (0,0))
 
-        menu_botao = Botao(botao_img, 600, 300, 'Menu', (96, 33), 30)
+    menu_botao = Botao(botao_img, 200, 100, 'Menu', (96, 33), 30)
 
-        menu_botao.changecolor(creditos_mouse_pos, 30)
-        menu_botao.uptade(tela)
+    menu_botao.changecolor(creditos_mouse_pos, 30)
+    menu_botao.uptade(tela)
 
-        for event in pygame.event.get():
-            if event.type == pygame.QUIT:
-                pygame.quit()
-                sys.exit()
-            if event.type == pygame.MOUSEBUTTONDOWN:
-                if menu_botao.check_for_input(creditos_mouse_pos):
-                    #iniciar = True
-                    creditos = False
-    return True
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            pygame.quit()
+            sys.exit()
+        if event.type == pygame.MOUSEBUTTONDOWN:
+            if menu_botao.check_for_input(creditos_mouse_pos):
+                iniciar = True
+                creditos = False
+
+    return iniciar, creditos
