@@ -24,6 +24,8 @@ VERMELHO = (180, 45, 20)
 
 
 # Funções
+##########################################################
+
 def load_imagem(path):
     img = pygame.image.load('Sources/' + path).convert()
     img.set_colorkey((0, 0, 0))
@@ -51,38 +53,3 @@ def draw_score(tela, qtd_moeda, qtd_cracha, cafe_c, cont):
     draw_texto(f'x{qtd_cracha}', fonte_score, PRETO, 96, 14, tela)
     if cafe_c:
         draw_texto(f'{cont}', fonte_score, PRETO, 156, 14, tela)
-
-
-'''    
-    moeda_img = pygame.image.load('Sources/moedas.png')
-    moeda = pygame.transform.scale(moeda_img, (20, 28))
-    moeda_rect = moeda.get_rect()
-    pygame.draw'''
-
-
-# Assets
-cafe_img = load_imagem('cafe.png')
-background_img = load_imagem('Cenário.jpeg')
-cracha_img = load_imagem('cracha.png')
-piso_img = load_imagem('piso.png')
-livro_img = load_imagem('livros.png')
-moeda_img = load_imagem('moedas.png')
-player_img = load_imagem('personagem_andar_1.png')
-catraca_img = load_imagem('catraca.png')
-porta_img = load_imagem('porta.png')
-robo_cin_img = load_imagem('robo_cin.png')
-janela_img = load_imagem('janela.png')
-jeep_img = load_imagem('jeep.png')
-agua_img = load_imagem('agua_junta.png')
-tela_menu = load_imagem('tela_menu.png')
-tela_instrucoes = load_imagem('tela_instrucoes.png')
-tela_creditos = load_imagem('tela_creditos.png')
-tela_perdeu = load_imagem('tela_perdeu.png')
-tela_ganhou = load_imagem('tela_ganhou.png')
-
-porta_img = load_imagem('porta.png')
-robo_cin_img = load_imagem('robo_cin.png')
-janela_img = load_imagem('janela.png')
-jeep_img = load_imagem('jeep.png')
-
-botao_img = load_imagem('botao.png')

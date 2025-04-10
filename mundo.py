@@ -1,6 +1,7 @@
 import pygame
 from objetos import *
 from globais import *
+from assets import *
 from mapa import level
 pygame.init()
 

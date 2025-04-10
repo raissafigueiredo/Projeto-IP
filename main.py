@@ -9,9 +9,14 @@ from telas import *
 
 pygame.init()
 
-relogio = pygame.time.Clock()
-fonte = pygame.font.SysFont("comic sans", 15, True, False)
 
+# Configura a janela
+icone = player_img
+pygame.display.set_icon(icone)
+pygame.display.set_caption('Água e fogo no CIn, sem água e sem fogo')
+
+
+relogio = pygame.time.Clock()
 running = True
 mundo = Mundo(mapa)
 jogador = Player(75, 515)
@@ -22,7 +27,7 @@ ganhou = False
 def reiniciar_jogo():
     global mundo, jogador, grupo_obstaculos, grupo_moedas, cracha, cafe, catraca
     global qtd_moedas, qtd_cracha, cracha_coletado, pulo_cafe
-    global perdeu, ganhou, counter, text
+    global perdeu, ganhou, counter
     
     # Recria o mundo e todos os objetos
     mundo = Mundo(mapa)
@@ -44,13 +49,8 @@ def reiniciar_jogo():
     ganhou = False
     
     # Reinicia o temporizador
-    counter, text = 10, '10'.rjust(3)
+    counter = 10
     pygame.time.set_timer(pygame.USEREVENT, 1000)
-
-# Configura a janela
-icone = player_img
-pygame.display.set_icon(icone)
-pygame.display.set_caption('Água e fogo no CIn, sem água e sem fogo')
 
 
 # Inicializa as variáveis dos coletáveis
@@ -67,9 +67,8 @@ inicio = True
 
 #variáveis do temporizador do café
 estado_cafe = False
-counter, text = 10, '10'.rjust(3)
+counter = 10
 pygame.time.set_timer(pygame.USEREVENT, 1000)
-font = pygame.font.SysFont('Consolas', 30)
 
 instrucoes_ver = False
 creditos_ver = False
@@ -83,7 +82,9 @@ while running:
 
     if instrucoes_ver == True:
         inicio, instrucoes_ver = instrucoes()
-                
+
+
+    # Lógica de funcionamento do jogo            
     if perdeu == False and inicio == False and instrucoes_ver == False and creditos_ver == False:
         relogio.tick(42)
         mundo.draw()
@@ -97,7 +98,6 @@ while running:
         #checa se o jogador tocou na água:
         if pygame.sprite.spritecollide(jogador, grupo_obstaculos, False):
             perdeu = True
-            print('perdeu mane')
             jogador.rect.x = 75
             jogador.rect.y = 515
 
@@ -105,7 +105,6 @@ while running:
         if pygame.sprite.spritecollide(jogador, catraca, False):
             if cracha_coletado:
                 ganhou =  True
-                print('ganhou ebarr!')
                 jogador.rect.x = 75
                 jogador.rect.y = 515
             else:
@@ -155,7 +154,7 @@ while running:
     if perdeu == True :
         tela.blit(tela_perdeu, (0,0))
         key = pygame.key.get_pressed()
-        
+
         if key[pygame.K_r]:
             reiniciar_jogo()
             perdeu = False

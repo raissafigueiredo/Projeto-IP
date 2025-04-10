@@ -81,20 +81,13 @@ class Player():
         rect_head = pygame.Rect(self.rect.x+10, self.rect.y, self.width-20, 1)
         rect_left = pygame.Rect(self.rect.x, self.rect.y+8, 1, self.height-13)
         rect_right = pygame.Rect(self.rect.x+29, self.rect.y+8, 1, self.height-13)
-
-
-        pygame.draw.rect(tela, (0, 0, 0), rect_foot)
-        pygame.draw.rect(tela, (255, 0, 0), rect_head)
-        pygame.draw.rect(tela, (0, 255, 0), rect_left)
-        pygame.draw.rect(tela, (0, 0, 255), rect_right)
-
-
+        
 
         # Verifica colisoes com plataformas
         self.no_chao = False
         for plataforma_ in plataformas: #Falta adicionar obstaculos a essa lista
 
-            #Colisão no pé da personagem
+            # Colisão no pé da personagem
             if plataforma_[1].colliderect(rect_foot.x, rect_foot.y, rect_foot.width, rect_foot.height):
 
                 if self.gravity > 0:  # Falling
@@ -102,30 +95,25 @@ class Player():
                     self.gravity = 0
                     self.no_chao = True  
             
-            #Colisão na cabeça da personagem
+            # Colisão na cabeça da personagem
             if plataforma_[1].colliderect(rect_head.x, rect_head.y, rect_head.width, rect_head.height):
                 if self.gravity < 0:  
                     self.rect.top = plataforma_[1].bottom
                     self.gravity = 0  
 
-
             #Se a colisão ocorrer à esquerda do personagem
             if plataforma_[1].colliderect(rect_left.x, rect_left.y, rect_left.width, rect_left.height):
-                
-                print("esquerda")
                 self.rect.left = plataforma_[1].right
 
             #Se a colisão ocorrer à direita do personagem
             if plataforma_[1].colliderect(rect_right.x, rect_right.y, rect_right.width, rect_right.height):
-
-                print("direita")
                 self.rect.right = plataforma_[1].left
 
-        # Aplica gravidade a velocidade
+        # Aplica gravidade à velocidade
         if not self.no_chao:
             self.rect.y += self.gravity
 
-        # Limita o movimento do boneco
+        # Limita o movimento do player
         if self.rect.left < 0:
             self.rect.left = 0
         if self.rect.right > 1025:
