@@ -29,6 +29,3 @@ class Botao():
             self.texto = self.fonte.render(self.texto_input, True, "gray")
         else:
             self.texto = self.fonte.render(self.texto_input, True, "white")
-
-
-

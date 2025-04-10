@@ -1,10 +1,5 @@
 import pygame
-import sys
-
 pygame.init()
-
-tela = pygame.display.set_mode((1025,600))
-pygame.display.set_caption("botao!")
 
 class Botao():
     def __init__(self, imagem, x_pos, y_pos, texto_input, tamanho_botao, tamanho_fonte):
@@ -24,7 +19,6 @@ class Botao():
 
     def check_for_input(self, posicao): #onde o mouse clica
         if posicao[0] in range(self.rect.left, self.rect.right) and posicao[1] in range(self.rect.top, self.rect.bottom): #0=x e 1=y
-            print("botao pressionado")
             return True
         return False
 

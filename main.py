@@ -155,8 +155,8 @@ while running:
     if perdeu == True :
         tela.blit(tela_perdeu, (0,0))
         key = pygame.key.get_pressed()
+        
         if key[pygame.K_r]:
-
             reiniciar_jogo()
             perdeu = False
         
