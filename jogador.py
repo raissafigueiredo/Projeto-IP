@@ -12,11 +12,15 @@ class Jogador():
         self.imagem_player = pygame.transform.scale(img, (30, 50))
         self.rect = self.imagem_player.get_rect()
 
+        #Som 
+        self.pulo_som = pygame.mixer.Sound('Sources/jump.mp3')
+        self.ugh_som = pygame.mixer.Sound('Sources/ugh.mp3')
+    
+
         # Criação da lista com sprites
         self.direcao = 1
         self.sprites_direita = []
         self.sprites_esquerda = []
-
         
         for num in range(4):
             img_right = pygame.image.load(f'Sources/personagem_andar_{num}.png')
@@ -25,8 +29,7 @@ class Jogador():
             self.sprites_esquerda.append(pygame.transform.scale(img_left, (30, 50)))
 
         self.index = 0
-        #sons
-        self.pulo_som = pygame.mixer.Sound('Sources/jump.mp3')
+
         # Coordenadas iniciais do player
         self.rect.x = x
         self.rect.y = y
@@ -77,11 +80,13 @@ class Jogador():
         # Configura o botao do pulo
         if (key[pygame.K_w] or key[pygame.K_SPACE] or key[pygame.K_UP]) and self.no_chao:
             self.gravity = -12
-            self.no_chao = False
-            self.pulo_som.play()
+            self.no_chao = False 
 
             if estado_cafe == True:
+                self.pulo_som.play()
                 self.gravity = -16
+            else:
+                self.ugh_som.play()
 
         #Rects para verificar colisão com plataformas e obstáculos
         rect_foot = pygame.Rect(self.rect.x+5, self.rect.y + 50, self.width-10, 1)
