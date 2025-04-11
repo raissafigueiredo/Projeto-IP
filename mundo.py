@@ -57,7 +57,7 @@ class Mundo():
                     self.crachas.add(cracha)
                 if tile == 7:  # Adiciona a catraca
                     catraca = Objetos(catraca_img, cont_cols * tile_size,
-                                      cont_linhas * tile_size, (40, 40))
+                                      cont_linhas * tile_size, (40, 50))
                     self.catracas.add(catraca)
                 if tile == 8:
                     porta = Objetos(porta_img, cont_cols * tile_size,
@@ -75,6 +75,16 @@ class Mundo():
                     jeep = Objetos(jeep_img, cont_cols * tile_size,
                                    cont_linhas * tile_size, (130, 90))
                     self.fundo.add(jeep)
+                if tile == 12:
+                    bebedouro = Objetos(bebedouro_img, cont_cols * tile_size,
+                                   cont_linhas * tile_size, (26, 100))
+                    self.fundo.add(bebedouro)
+                if tile == 13:
+                    placa = Objetos(placa_img, cont_cols * tile_size,
+                                   cont_linhas * tile_size, (75, 53))
+                    self.fundo.add(placa)
+
+
 
                 cont_cols += 1
             cont_linhas += 1
@@ -84,6 +94,11 @@ class Mundo():
         self.fundo.draw(tela)
         for plat in self.plataformas:
             tela.blit(plat[0], plat[1])
+        self.obstaculos.draw(tela)
+        self.catracas.draw(tela)
+
+    def __init__(self, mapa):
+        self.reiniciar(mapa)
         self.obstaculos.draw(tela)
         self.catracas.draw(tela)
 
