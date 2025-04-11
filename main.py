@@ -18,7 +18,9 @@ pygame.display.set_caption('Água e fogo no CIn, sem água e sem fogo')
 relogio = pygame.time.Clock()
 pygame.time.set_timer(pygame.USEREVENT, 1000)
 running = True
-inicio = True
+tela_menu = True
+tela_instrucoes = False
+tela_creditos = False
 
 mundo = Mundo(mapa)
 jogador = Jogador(75, 515)
@@ -52,21 +54,19 @@ def reiniciar_jogo(mundo, mapa, jogador):
 
 reiniciar_jogo(mundo, mapa, jogador)
 
-instrucoes_ver = False
-creditos_ver = False
 
 while running:
-    if inicio == True:
-        inicio, instrucoes_ver, creditos_ver = menu()
+    if tela_menu == True:
+        tela_menu, tela_instrucoes, tela_creditos = menu()
 
-    if creditos_ver == True:
-        inicio, creditos_ver = creditos()
+    if tela_creditos == True:
+        tela_menu, tela_creditos = creditos()
 
-    if instrucoes_ver == True:
-        inicio, instrucoes_ver = instrucoes()
+    if tela_instrucoes == True:
+        tela_menu, tela_instrucoes = instrucoes()
 
     # Lógica de funcionamento do jogo
-    if perdeu == False and inicio == False and instrucoes_ver == False and creditos_ver == False:
+    if perdeu == False and tela_menu == False and tela_instrucoes == False and tela_creditos == False:
         relogio.tick(42)
         mundo.draw()
         grupo_moedas.draw(tela)
