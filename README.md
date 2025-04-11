@@ -31,19 +31,19 @@ jogador.py:
 - Estabelece colisões e física
 - Animação do player
 
-objetos.py
+objetos.py:
 - Arquivo onde estão armazenadas as classes de objetos que serão instanciadas
 
-botão.py
+botão.py:
 - Armazena classe de botão, usado para interagir com o mouse
 
-globais.py
+globais.py:
 - Tem funções específicas e constantes que são usadas no decorrer do código
 
-assets.py
+assets.py:
 - Contém imagens da pasta Source que serão usadas no código
 
-Source
+Source:
 - Pasta que contém imagens das sprites e cenário
 
 # Sobre o jogo
