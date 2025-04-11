@@ -51,7 +51,31 @@ Source
 
 # Capturas de tela🤳
 
+
 # Ferramentas, bibliotecas e frameworks utilizados
+Notion
+- Atribuição de tarefas
+- Planejamento e organização
+
+GitHub
+- Repositório principal
+
+Vs Code
+- Estúdio para criação do código
+
+Pixil e Piskel
+- Siites utilizados para criação de pixel arts
+
+Whatsapp
+- Meio de comunicação principal entre membros do grupo
+  
+Pygame
+- Biblioteca utilizada para a execução das funcionalidades do jogo
+- Mecânica de colisões e física
+- Lida com sprites, display do jogo, cores, retângulos e display
+
+Sys
+- Importada para utilização do cursor
 
 
 # Divisão de tarefas
@@ -86,7 +110,7 @@ Giovanna Bardi &lt;gmcb&gt;
 - Criou o sistema de "reset" do mapa e dos coletáveis. Criou a classe dos botões.
 
 Maria Amorim &lt;maca&gt;
-- Responsável pela maior parte dos sprites e figuras realizadas no trabalho.
+- Responsável pela maior parte dos sprites e figuras contidas no trabalho.
 - Criou os frames de animação e cada detalhe ilustrativo do projeto.
 - Aprimorou a dinâmica das telas de instrução, game over e vitória. Criou os botões e tornou eles clicáveis.
 - Ajudou no sistema de contagem dos itens.
@@ -95,6 +119,7 @@ Raissa Machado &lt;rmf5&gt;
 - Responsável por prototipar a organização das plataformas.
 - Iniciou a colisão com os livros e implementação dos objetos.
 - Contribuiu na criação da tela de menu/ game over/ vitória.
+- Criação de diversas sprites
 
 Romero Cavalcanti &lt;rrcf&gt;
 - Responsável pela classe player.
