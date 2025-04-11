@@ -105,6 +105,7 @@ while running:
         if pygame.sprite.spritecollide(jogador, cafe, True):
             qtd_antiga = 0
             pulo_cafe = True
+            qtd_cafe += 1
             counter = 10
 
         # pulo do café
@@ -131,7 +132,7 @@ while running:
         key = pygame.key.get_pressed()
 
         if key[pygame.K_r]:
-            reiniciar_jogo()
+            reiniciar_jogo(mundo, mapa, jogador)
 
     pygame.display.update()
 
