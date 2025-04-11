@@ -52,20 +52,20 @@ Source
 # Sobre o jogo
 O jogo consiste em uma jovem caloura desastrada, que deixou cair o seu crachá em um lugar inesperado e precisa exercitar suas técticas de ninja para recuperar seu item perdido. Para isso, ela utilizará de sua poção mágica: o café, que será fonte de energia e força quando o perigo parece iminente. Ajude a jovem caloura a sair do centro e a coletar as moedas que os estudantes destraídos deixaram pelo caminho!
 
-TELA INICIAL
-![image](https://github.com/user-attachments/assets/415ae391-b5b5-4cb9-9916-f56dc4c50e21)
+**TELA INICIAL**
+![image](https://github.com/raissafigueiredo/Projeto-IP/blob/main/Sources/tela_inicial.png)
 
-INSTRUÇÕES
-![image](https://github.com/user-attachments/assets/ca772af5-b559-4d93-8880-ac292d614427)
+**INSTRUÇÕES**
+![image](https://github.com/raissafigueiredo/Projeto-IP/blob/main/Sources/tela_instrucoes.png)
 
-AMBIENTE
-![image](https://github.com/user-attachments/assets/f4ab1a1c-3068-48f2-a368-f77dbc3cbcf9)
+**AMBIENTE**
+![image](https://github.com/raissafigueiredo/Projeto-IP/blob/main/Sources/tela_jogo.png)
 
-VITÓRIA
-![image](https://github.com/user-attachments/assets/0e6fa166-70b3-4796-9ab2-58eab621164a)
+**VITÓRIA**
+![image](https://github.com/raissafigueiredo/Projeto-IP/blob/main/Sources/tela_venceu.png)
 
-DERROTA
-![image](https://github.com/user-attachments/assets/140fe390-4201-4446-93eb-df00c1ae7c1a)
+**DERROTA**
+![image](https://github.com/raissafigueiredo/Projeto-IP/blob/main/Sources/tela_perdeu.png)
 
 
 
