@@ -93,6 +93,12 @@ Pygame
 Sys
 - Importada para utilização do cursor
 
+Pixabay e YouTube
+- Onde conseguimos os audios e trilha sonora do jogo
+
+Audacity
+-Edição de áudio
+
 
 # Divisão de tarefas
 
