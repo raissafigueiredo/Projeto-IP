@@ -26,7 +26,7 @@ mundo.py:
 mapa.py:
 - Matriz que indica onde está cada tipo de objeto no mapa
 
-player.py:
+jogador.py:
 - Cria movimentação do player
 - Estabelece colisões e física
 - Animação do player

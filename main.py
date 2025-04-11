@@ -2,7 +2,7 @@ import pygame
 import sys
 from pygame.locals import *
 from mundo import *
-from player import *
+from jogador import *
 from globais import *
 from telas import *
 
