@@ -16,9 +16,9 @@ def menu():
             
     mouse_pos = pygame.mouse.get_pos()
 
-    iniciar_botao = Botao(botao_img, 900, 400, 'Iniciar', (100, 60), 30)
-    instrucoes_botao = Botao(botao_img, 700, 400, 'Instruções', (100, 60), 30)
-    creditos_botao = Botao(botao_img, 500, 400, 'Créditos', (100, 60), 30)
+    iniciar_botao = Botao(botao_img, 460, 400, 'Iniciar', (190, 70), 30)
+    instrucoes_botao = Botao(botao_img, 670, 400, 'Instruções', (190, 70), 30)
+    creditos_botao = Botao(botao_img, 880, 400, 'Créditos', (190, 70), 30)
 
     draw_texto(f'MENU', fonte_1, PRETO, 10, 10, tela)
 
