@@ -12,7 +12,7 @@ pygame.init()
 # Configura a janela
 icone = jogador_img
 pygame.display.set_icon(icone)
-pygame.display.set_caption('Água e fogo no CIn, sem água e sem fogo')
+pygame.display.set_caption('CIn Saida')
 
 
 relogio = pygame.time.Clock()

@@ -12,7 +12,10 @@ def menu():
     instrucoes_ver = False
     creditos_ver = False
 
+    nome = pygame.transform.scale(nome_jogo, (440, 210))
+
     tela.blit(tela_menu, (0,0))
+    tela.blit(nome, (450,150))
             
     mouse_pos = pygame.mouse.get_pos()
 
