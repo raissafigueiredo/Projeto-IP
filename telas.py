@@ -54,7 +54,7 @@ def instrucoes():
     tela.fill(PRETO)
     tela.blit(tela_instrucoes, (0,0))
 
-    menu_botao = Botao(botao_img, 200, 100, 'Menu', (96, 33), 30)
+    menu_botao = Botao(botao_img, 950, 47, 'Menu', (96, 33), 30)
 
     for botao in [menu_botao]:
         botao.changecolor(mouse_pos, 30)
@@ -81,7 +81,7 @@ def creditos ():
     tela.fill(PRETO)
     tela.blit(tela_creditos, (0,0))
 
-    menu_botao = Botao(botao_img, 200, 100, 'Menu', (96, 33), 30)
+    menu_botao = Botao(botao_img, 950, 47, 'Menu', (96, 33), 30)
     menu_botao.changecolor(creditos_mouse_pos, 30)
     menu_botao.uptade(tela)
 
