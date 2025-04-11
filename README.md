@@ -49,7 +49,26 @@ assets.py
 Source
 -Pasta que contém imagens das sprites e cenário
 
-# Capturas de tela🤳
+# Sobre o jogo
+O jogo consiste em uma jovem caloura desastrada, que deixou cair o seu crachá em um lugar inesperado e precisa exercitar suas técticas de ninja para recuperar seu item perdido. Para isso, ela utilizará de sua poção mágica: o café, que será fonte de energia e força quando o perigo parece iminente. Ajude a jovem caloura a sair do centro e a coletar as moedas que os estudantes destraídos deixaram pelo caminho!
+
+TELA INICIAL
+![image](https://github.com/user-attachments/assets/415ae391-b5b5-4cb9-9916-f56dc4c50e21)
+
+INSTRUÇÕES
+![image](https://github.com/user-attachments/assets/ca772af5-b559-4d93-8880-ac292d614427)
+
+AMBIENTE
+![image](https://github.com/user-attachments/assets/f4ab1a1c-3068-48f2-a368-f77dbc3cbcf9)
+
+VITÓRIA
+![image](https://github.com/user-attachments/assets/0e6fa166-70b3-4796-9ab2-58eab621164a)
+
+DERROTA
+![image](https://github.com/user-attachments/assets/140fe390-4201-4446-93eb-df00c1ae7c1a)
+
+
+
 
 
 # Ferramentas, bibliotecas e frameworks utilizados
@@ -105,7 +124,9 @@ Elena Pimentel &lt;epao&gt;
 - Criou o sistema de crachá e catraca.
 
 Giovanna Bardi &lt;gmcb&gt;
-- Responsável por criarIdealizou o mapa e o cenário. Criou e aperfeiçoou o modo como se comporta com/sem café.
+- Responsável por criar as poças de água e a dinâmica de morte.
+- Idealizou o mapa e o cenário.
+- Criou e aperfeiçoou o modo como se comporta com/sem café.
 - Criou o timer para o café e o sistema de contagem de coletáveis.
 - Criou o sistema de "reset" do mapa e dos coletáveis. Criou a classe dos botões.
 
