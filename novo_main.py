@@ -1,10 +1,13 @@
 import pygame
 from pygame.locals import *
-from mundo import *
 from jogador import *
 from globais import *
 from telas import *
 pygame.init()
+
+mundo = Mundo(mapa)
+jogador = Jogador(75, 515)
+inicializar = 
 
 
 def jogo(mundo, mapa, jogador, incializar):
@@ -99,3 +102,5 @@ def jogo(mundo, mapa, jogador, incializar):
         pygame.display.update()
 
     jogar(incializar)
+
+jogo()
