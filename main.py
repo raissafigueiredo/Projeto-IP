@@ -29,6 +29,9 @@ choir_som = pygame.mixer.Sound('Sources/coro.mp3')
 glup_som = pygame.mixer.Sound('Sources/glup.mp3')
 slip_som = pygame.mixer.Sound('Sources/slip.mp3')
 crowd_som = pygame.mixer.Sound('Sources/crowd.mp3')
+ahh_som = pygame.mixer.Sound('Sources/ahh.mp3')
+
+pygame.mixer.music.play()
 
 mundo = Mundo(mapa)
 jogador = Jogador(75, 515)
@@ -59,6 +62,7 @@ def reiniciar_jogo(mundo, mapa, jogador):
     cracha = mundo.crachas
     catraca = mundo.catracas
     cafe = mundo.cafes 
+    
 
 reiniciar_jogo(mundo, mapa, jogador)
 
@@ -119,7 +123,9 @@ while running:
             pulo_cafe = True
             qtd_cafe += 1
             counter = 10
+            ahh_som.play()
             glup_som.play()
+            
 
         # pulo do café
         if pulo_cafe == True:
