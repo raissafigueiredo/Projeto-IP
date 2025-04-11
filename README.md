@@ -185,20 +185,20 @@ Orientação a objetos
 
 
 # Desafios, erros e aprendizados 💥
-  Qual foi o maior erro cometido durante o projeto? Como vocês lidaram com ele?
+Qual foi o maior erro cometido durante o projeto? Como vocês lidaram com ele?
   
   - Divisão prematura das classes de objetos
   - Não tinhamos uma noção de como estruturar o código e começamos com pequenas gambiarras incompletas
   - Começamos com o intuito de entender melhor a biblioteca para posteriormente encaixar cada parte do código
   - No fim das contas acabou por ser mais difícil encaixar as partes entre si do que fazer cada uma separadamente
   - A falta de uma estruturação inicial tornou o projeto mais complicado que deveria (cada um começou fazendo do seu jeito, sem pensar no todo)
-  
-  Qual foi o maior desafio enfrentado durante o projeto? Como vocês lidaram com ele?
+
+Qual foi o maior desafio enfrentado durante o projeto? Como vocês lidaram com ele?
   
 - O maior desafio do trabalho foi aprender a cooperar com pessoas que pensam diferente de você (não apenas opiniões, mas lógica de programação e estruturação de  código, principalmente)
 - Entender o que cada parte do código estava fazendo sem ter sido a pessoa que a projetou e como fazer para com que as  classes funcionassem harmonicamente entre si
   
-  Quais as lições aprendidas durante o projeto?
+Quais as lições aprendidas durante o projeto?
   
   - Uma das maiores lições foi a importâncio do planejamento prévio na realização de qualquer trabalho
   - A importância de, não somente deixar o código funcioal, mas também, compreensível (adicionar comentários, espaçamentos, etc.)
