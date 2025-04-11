@@ -212,6 +212,6 @@ Orientação a objetos
 # Links
 Apresentação: https://docs.google.com/presentation/d/1el1toBAG2vcACBF9yUU1r8igBtxO7gJAbUSWJVbbzyE/edit?usp=sharing
 
-Notion: https://www.notion.so/Projeto-IP-1c2392021be480a48f9debd60174520a
+Notion: https://big-stingray-48f.notion.site/Projeto-IP-1c2392021be480a48f9debd60174520a?pvs=4 
 
 Documento: https://docs.google.com/document/d/1WZ9rB6pWkI9Ye3umbNvmfdzllDLxfnOzBjCPjfMOhQQ/edit?tab=t.0#heading=h.7g61vqyk87mu
