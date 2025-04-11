@@ -53,7 +53,7 @@ Source
 O jogo consiste em uma jovem caloura desastrada, que deixou cair o seu crachá em um lugar inesperado e precisa exercitar suas técticas de ninja para recuperar seu item perdido. Para isso, ela utilizará de sua poção mágica: o café, que será fonte de energia e força quando o perigo parece iminente. Ajude a jovem caloura a sair do centro e a coletar as moedas que os estudantes destraídos deixaram pelo caminho!
 
 **TELA INICIAL**
-![image](https://github.com/raissafigueiredo/Projeto-IP/blob/main/Sources/tela_inicial.png)
+![image](https://github.com/raissafigueiredo/Projeto-IP/blob/main/Sources/tela_inicial1.png)
 
 **INSTRUÇÕES**
 ![image](https://github.com/raissafigueiredo/Projeto-IP/blob/main/Sources/tela_instrucoes.png)
