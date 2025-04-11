@@ -2,7 +2,7 @@ from mundo import *
 import pygame
 
 #sons
-self.pulo_som = pygame.mixer.Sound('Sources/jump.mp3')
+pulo_som = pygame.mixer.Sound('Sources/jump.mp3')
 
 class Jogador():
 
@@ -77,7 +77,7 @@ class Jogador():
         if (key[pygame.K_w] or key[pygame.K_SPACE] or key[pygame.K_UP]) and self.no_chao:
             self.gravity = -12
             self.no_chao = False
-            self.pulo_som.play()
+            pulo_som.play()
 
             if estado_cafe == True:
                 self.gravity = -16
