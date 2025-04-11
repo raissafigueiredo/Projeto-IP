@@ -1,7 +1,7 @@
 # Água e fogo no CIn, sem água e sem fogo - Projeto Introdução à Programação
 Projeto final da Equipe 3 para a disciplina de Introdução à Programação de Ciência da Computação do Centro de Informática da UFPE.
 
-Integrantes:
+#Integrantes 👨‍🦲:
 
 Ádson Viana &lt;aav&gt;
 
@@ -15,13 +15,39 @@ Raissa Machado &lt;rmf5&gt;
 
 Romero Cavalcanti &lt;rrcf&gt;
 
-# Descrição da arquitetura do projeto
+# Descrição da arquitetura do projeto 🏛
 
 O projeto está distribuído em alguns arquivos, cada um desempenhando uma função específica no jogo:
 
 main.py:
-Arquivo principal do jogo que contém o loop e as
-# Capturas de tela
+- Arquivo principal do jogo
+- Providencia as funcionalidades de jogo e telas (game over/ instrução)
+- Chama as outras classes e os outros arquivos com suas funcionalidades
+- Contabiliza e reinicia coletáveis
+
+mundo.py:
+- Cria todos os objetos listados em mapa.py
+
+mapa.py:
+- Matriz que indica onde está cada tipo de objeto no mapa
+
+player.py:
+- Cria movimentação do player
+- Estabelece colisões e física
+- Animação do player
+
+objetos.py
+- Arquivo onde estão armazenadas as classes de objetos que serão instanciadas
+
+botão.py
+- Armazena classe de botão, usado para interagir com o mouse
+
+
+
+
+
+
+# Capturas de tela🤳
 
 # Ferramentas, bibliotecas e frameworks utilizados
 
