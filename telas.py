@@ -23,8 +23,6 @@ def menu():
     instrucoes_botao = Botao(botao_img, 670, 400, 'Instruções', (190, 70), 30)
     creditos_botao = Botao(botao_img, 880, 400, 'Créditos', (190, 70), 30)
 
-    draw_texto(f'MENU', fonte_1, PRETO, 10, 10, tela)
-
     for botao in [iniciar_botao, instrucoes_botao, creditos_botao]:
         botao.changecolor(mouse_pos, 30)
         botao.uptade(tela)
