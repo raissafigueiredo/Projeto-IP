@@ -11,9 +11,8 @@ mapa = level()
 
 class Mundo():
 
-    def __init__(self, mapa):
-        self.background = pygame.transform.scale(
-            background_img, (LARGURA, ALTURA))
+    def reiniciar(self, mapa):
+        self.background = pygame.transform.scale(background_img, (LARGURA, ALTURA))
         self.plataformas = []
         self.moedas = pygame.sprite.Group()
         self.cafes = pygame.sprite.Group()
@@ -53,24 +52,24 @@ class Mundo():
                                    cont_linhas * tile_size, TAM_COLECIONAVEIS)
                     self.cafes.add(cafe)
                 if tile == 6:  # Adiciona um crachá
-                    cracha = Objetos(
-                        cracha_img, cont_cols * tile_size, cont_linhas * tile_size, TAM_COLECIONAVEIS)
+                    cracha = Objetos(cracha_img, cont_cols * tile_size,
+                                     cont_linhas * tile_size, TAM_COLECIONAVEIS)
                     self.crachas.add(cracha)
                 if tile == 7:  # Adiciona a catraca
-                    catraca = Objetos(
-                        catraca_img, cont_cols * tile_size, cont_linhas * tile_size, (40, 40))
+                    catraca = Objetos(catraca_img, cont_cols * tile_size,
+                                      cont_linhas * tile_size, (40, 40))
                     self.catracas.add(catraca)
                 if tile == 8:
                     porta = Objetos(porta_img, cont_cols * tile_size,
                                     cont_linhas * tile_size + 2.2, (62, 95))
                     self.fundo.add(porta)
                 if tile == 9:
-                    robo_cin = Objetos(
-                        robo_cin_img, cont_cols * tile_size, cont_linhas * tile_size, (130, 90))
+                    robo_cin = Objetos(robo_cin_img, cont_cols * tile_size,
+                                       cont_linhas * tile_size, (130, 90))
                     self.fundo.add(robo_cin)
                 if tile == 10:
-                    janela = Objetos(janela_img, cont_cols *
-                                     tile_size, cont_linhas * tile_size, (86, 52))
+                    janela = Objetos(janela_img, cont_cols * tile_size,
+                                     cont_linhas * tile_size, (86, 52))
                     self.fundo.add(janela)
                 if tile == 11:
                     jeep = Objetos(jeep_img, cont_cols * tile_size,
@@ -87,3 +86,6 @@ class Mundo():
             tela.blit(plat[0], plat[1])
         self.obstaculos.draw(tela)
         self.catracas.draw(tela)
+
+    def __init__(self, mapa):
+        self.reiniciar(mapa)

@@ -3,7 +3,6 @@ import sys
 from pygame.locals import *
 from mundo import *
 from player import *
-from botão import Botao
 from globais import *
 from telas import *
 
@@ -11,64 +10,47 @@ pygame.init()
 
 
 # Configura a janela
-icone = player_img
+icone = jogador_img
 pygame.display.set_icon(icone)
 pygame.display.set_caption('Água e fogo no CIn, sem água e sem fogo')
 
 
 relogio = pygame.time.Clock()
+pygame.time.set_timer(pygame.USEREVENT, 1000)
 running = True
+inicio = True
+
 mundo = Mundo(mapa)
-jogador = Player(75, 515)
-perdeu = False
-ganhou = False
+jogador = Jogador(75, 515)
 
 #função para reiniciar
-def reiniciar_jogo():
-    global mundo, jogador, grupo_obstaculos, grupo_moedas, cracha, cafe, catraca
-    global qtd_moedas, qtd_cracha, cracha_coletado, pulo_cafe
+def reiniciar_jogo(mundo, mapa, jogador):
+    global grupo_obstaculos, grupo_moedas, cracha, cafe, catraca
+    global qtd_moedas, qtd_cracha, qtd_cafe, cracha_coletado, pulo_cafe
     global perdeu, ganhou, counter
+
+    # Reinicia todas as variáveis 
+    qtd_moedas = 0
+    qtd_cracha = 0
+    qtd_cafe = 0
+    cracha_coletado = False
+    pulo_cafe = False
+    perdeu = False
+    ganhou = False
+    counter = 10   
     
     # Recria o mundo e todos os objetos
-    mundo = Mundo(mapa)
-    jogador = Player(75, 515)
+    mundo.reiniciar(mapa)
+    jogador.reiniciar(75, 515)
     
     # Atualiza os grupos de sprites
     grupo_obstaculos = mundo.obstaculos
     grupo_moedas = mundo.moedas
     cracha = mundo.crachas
     catraca = mundo.catracas
-    cafe = mundo.cafes
-    
-    # Reinicia todas as variáveis 
-    qtd_moedas = 0
-    qtd_cracha = 0
-    cracha_coletado = False
-    pulo_cafe = False
-    perdeu = False
-    ganhou = False
-    
-    # Reinicia o temporizador
-    counter = 10
-    pygame.time.set_timer(pygame.USEREVENT, 1000)
+    cafe = mundo.cafes 
 
-
-# Inicializa as variáveis dos coletáveis
-qtd_moedas = 0
-qtd_cracha = 0
-grupo_obstaculos = mundo.obstaculos
-grupo_moedas = mundo.moedas
-cracha = mundo.crachas
-catraca = mundo.catracas
-cafe = mundo.cafes
-cracha_coletado = False
-pulo_cafe = False
-inicio = True
-
-#variáveis do temporizador do café
-estado_cafe = False
-counter = 10
-pygame.time.set_timer(pygame.USEREVENT, 1000)
+reiniciar_jogo(mundo, mapa, jogador)
 
 instrucoes_ver = False
 creditos_ver = False
@@ -76,41 +58,40 @@ creditos_ver = False
 while running:
     if inicio == True:
         inicio, instrucoes_ver, creditos_ver = menu()
-    
+
     if creditos_ver == True:
         inicio, creditos_ver = creditos()
 
     if instrucoes_ver == True:
         inicio, instrucoes_ver = instrucoes()
 
-
-    # Lógica de funcionamento do jogo            
+    # Lógica de funcionamento do jogo
     if perdeu == False and inicio == False and instrucoes_ver == False and creditos_ver == False:
         relogio.tick(42)
         mundo.draw()
         grupo_moedas.draw(tela)
         cracha.draw(tela)
         cafe.draw(tela)
-        draw_score(tela, qtd_moedas, qtd_cracha, pulo_cafe, counter)
+        draw_score(tela, qtd_moedas, qtd_cracha, qtd_cafe, pulo_cafe, counter)
 
         jogador.update(mundo, pulo_cafe)
-        
-        #checa se o jogador tocou na água:
+
+        # checa se o jogador tocou na água:
         if pygame.sprite.spritecollide(jogador, grupo_obstaculos, False):
             perdeu = True
             jogador.rect.x = 75
             jogador.rect.y = 515
 
-        #checa se o jogador chegou até a catraca:
+        # checa se o jogador chegou até a catraca:
         if pygame.sprite.spritecollide(jogador, catraca, False):
             if cracha_coletado:
-                ganhou =  True
+                ganhou = True
                 jogador.rect.x = 75
                 jogador.rect.y = 515
             else:
-                draw_texto('Você precisa do crachá!', fonte_1, BRANCO, 650, 550, tela)
+                draw_texto('Você precisa do crachá!',
+                           fonte_1, BRANCO, 650, 550, tela)
 
-            
         # checa se alguma moeda foi coletada
         if pygame.sprite.spritecollide(jogador, grupo_moedas, True):
             qtd_moedas += 1
@@ -125,41 +106,33 @@ while running:
             qtd_antiga = 0
             pulo_cafe = True
             counter = 10
-            pygame.time.set_timer(pygame.USEREVENT, 1000)  # Reinicia o timer
 
-        #pulo do café
+        # pulo do café
         if pulo_cafe == True:
             for e in pygame.event.get():
-                if e.type == pygame.USEREVENT: 
+                if e.type == pygame.USEREVENT:
                     counter -= 1
                     if counter == 0:
                         pulo_cafe = False
-                
 
         # se a pessoa quiser reiniciar a qualquer momento
         key = pygame.key.get_pressed()
         if key[pygame.K_r]:
-
-            reiniciar_jogo()
+            reiniciar_jogo(mundo, mapa, jogador)
 
     if ganhou == True:
-        tela.blit(tela_ganhou, (0,0))
+        tela.blit(tela_ganhou, (0, 0))
         key = pygame.key.get_pressed()
         if key[pygame.K_r]:
+            reiniciar_jogo(mundo, mapa, jogador)
 
-            reiniciar_jogo()
-            ganhou = False
-
-
-    if perdeu == True :
-        tela.blit(tela_perdeu, (0,0))
+    if perdeu == True:
+        tela.blit(tela_perdeu, (0, 0))
         key = pygame.key.get_pressed()
 
         if key[pygame.K_r]:
             reiniciar_jogo()
-            perdeu = False
-        
-    
+
     pygame.display.update()
 
     for event in pygame.event.get():

@@ -2,8 +2,10 @@ from mundo import *
 import pygame
 
 
-class Player():
-    def __init__(self, x, y):
+class Jogador():
+
+    def reiniciar(self, x, y):
+
         # Imagem do player
         img = pygame.image.load('Sources/personagem_andar_0.png')
         self.imagem_player = pygame.transform.scale(img, (30, 50))
@@ -35,6 +37,7 @@ class Player():
         # Medidas da imagem
         self.width = self.imagem_player.get_width()
         self.height = self.imagem_player.get_height()
+        
 
     def update(self, mundo, estado_cafe):
         # Importa lista de plataformas
@@ -127,3 +130,6 @@ class Player():
 
         # Atualiza a tela
         tela.blit(self.imagem_player, self.rect)
+
+    def __init__(self, x, y):
+        self.reiniciar(x, y)
