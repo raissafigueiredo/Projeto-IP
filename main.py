@@ -22,6 +22,14 @@ tela_menu = True
 tela_instrucoes = False
 tela_creditos = False
 
+#Sons
+musica = pygame.mixer.music.load('Sources/soundtrack.mp3')
+coin_som = pygame.mixer.Sound('Sources/coin.mp3')
+choir_som = pygame.mixer.Sound('Sources/coro.mp3')
+glup_som = pygame.mixer.Sound('Sources/glup.mp3')
+slip_som = pygame.mixer.Sound('Sources/slip.mp3')
+crowd_som = pygame.mixer.Sound('Sources/crowd.mp3')
+
 mundo = Mundo(mapa)
 jogador = Jogador(75, 515)
 
@@ -81,6 +89,7 @@ while running:
             perdeu = True
             jogador.rect.x = 75
             jogador.rect.y = 515
+            slip_som.play()
 
         # checa se o jogador chegou até a catraca:
         if pygame.sprite.spritecollide(jogador, catraca, False):
@@ -88,6 +97,7 @@ while running:
                 ganhou = True
                 jogador.rect.x = 75
                 jogador.rect.y = 515
+                crowd_som.play()
             else:
                 draw_texto('Você precisa do crachá!',
                            fonte_1, BRANCO, 650, 550, tela)
@@ -95,11 +105,13 @@ while running:
         # checa se alguma moeda foi coletada
         if pygame.sprite.spritecollide(jogador, grupo_moedas, True):
             qtd_moedas += 1
+            coin_som.play()
 
         # checa se o crachá foi coletado
         if pygame.sprite.spritecollide(jogador, cracha, True):
             cracha_coletado = True
             qtd_cracha += 1
+            choir_som.play()
 
         # checa se o café foi coletado
         if pygame.sprite.spritecollide(jogador, cafe, True):
@@ -107,6 +119,7 @@ while running:
             pulo_cafe = True
             qtd_cafe += 1
             counter = 10
+            glup_som.play()
 
         # pulo do café
         if pulo_cafe == True:
