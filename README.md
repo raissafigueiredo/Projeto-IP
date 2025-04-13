@@ -53,7 +53,7 @@ O jogo consiste em uma jovem caloura desastrada, que deixou cair o seu crachá e
 ![image](https://github.com/raissafigueiredo/Projeto-IP/blob/main/Sources/tela_inicial1.png)
 
 **INSTRUÇÕES**
-![image](https://github.com/raissafigueiredo/Projeto-IP/blob/main/Sources/tela_instrucoes.png)
+![image](https://github.com/raissafigueiredo/Projeto-IP/blob/main/Sources/tela_instrucoes1.png)
 
 **AMBIENTE**
 ![image](https://github.com/raissafigueiredo/Projeto-IP/blob/main/Sources/tela_jogo.png)
