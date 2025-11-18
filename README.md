@@ -212,7 +212,7 @@ Quais as lições aprendidas durante o projeto?
   - Vamos usufruir com coisas novas na maior parte do tempo, a nossa flexibilidade (apesar de custosa) e capacidade de aprendizado e adaptação foram coisas muito interessantes de se perceber
   - Além disso, deu pra perceber a importância de uma plataforma de repositório para lidar com arquivos que estão em constante mudança
   - Lidar com orientação a objetos foi marcante, pois era o único assunto que não tinhamos exercitado no Dikastis
-  - Implementar essas funcionalidades diretamente no projeto final contribuiu para aumentar o domínio desse assunto
+  - Implementar essas funcionalidades diretamente no projeto final contribuiu para aumentar o domínio desse assunto.
 
 # Links
 Apresentação: https://docs.google.com/presentation/d/1el1toBAG2vcACBF9yUU1r8igBtxO7gJAbUSWJVbbzyE/edit?usp=sharing
